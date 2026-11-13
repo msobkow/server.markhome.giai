@@ -1,0 +1,62 @@
+{
+  "SPDXID" : "SPDXRef-DOCUMENT",
+  "spdxVersion" : "SPDX-2.3",
+  "creationInfo" : {
+    "created" : "8390-06-28T13:10:00Z",
+    "creators" : [ "Tool: spdx-maven-plugin" ],
+    "licenseListVersion" : "3.29.0"
+  },
+  "name" : "server.markhome.giai",
+  "dataLicense" : "CC0-1.0",
+  "documentNamespace" : "http://spdx.org/spdxpackages/server.markhome_server.markhome.giai-3.1.42-alpha17-202611140000",
+  "packages" : [ {
+    "SPDXID" : "SPDXRef--4b3779bf0",
+    "copyrightText" : "NOASSERTION",
+    "description" : "Yorkton Code Fractal",
+    "downloadLocation" : "NOASSERTION",
+    "externalRefs" : [ {
+      "referenceCategory" : "PACKAGE-MANAGER",
+      "referenceLocator" : "pkg:maven/server.markhome/server.markhome.giai@3.1.42-alpha17-202611140000",
+      "referenceType" : "purl"
+    } ],
+    "filesAnalyzed" : true,
+    "licenseConcluded" : "NOASSERTION",
+    "licenseDeclared" : "NOASSERTION",
+    "licenseInfoFromFiles" : [ "NOASSERTION" ],
+    "name" : "server.markhome.giai",
+    "packageFileName" : "NOASSERTION",
+    "packageVerificationCode" : {
+      "packageVerificationCodeValue" : "17f004ad3643d7b045709bfe195872f9436986ef"
+    },
+    "primaryPackagePurpose" : "INSTALL",
+    "summary" : "Yorkton Code Fractal",
+    "versionInfo" : "3.1.42-alpha17-202611140000"
+  } ],
+  "files" : [ {
+    "SPDXID" : "SPDXRef--60bbb53e0",
+    "checksums" : [ {
+      "algorithm" : "SHA1",
+      "checksumValue" : "808cff5ac4a79f851639b107206df696e1861c61"
+    } ],
+    "copyrightText" : "NOASSERTION",
+    "fileName" : "./LICENSE.txt",
+    "fileTypes" : [ "TEXT" ],
+    "licenseConcluded" : "NOASSERTION",
+    "licenseInfoInFiles" : [ "NOASSERTION" ]
+  } ],
+  "relationships" : [ {
+    "spdxElementId" : "SPDXRef-DOCUMENT",
+    "relationshipType" : "DESCRIBES",
+    "relatedSpdxElement" : "SPDXRef--4b3779bf0",
+    "comment" : ""
+  }, {
+    "spdxElementId" : "SPDXRef--60bbb53e0",
+    "relationshipType" : "GENERATES",
+    "relatedSpdxElement" : "SPDXRef--4b3779bf0",
+    "comment" : ""
+  }, {
+    "spdxElementId" : "SPDXRef--4b3779bf0",
+    "relationshipType" : "CONTAINS",
+    "relatedSpdxElement" : "SPDXRef--60bbb53e0"
+  } ]
+}

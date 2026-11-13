@@ -3,14 +3,14 @@
 	<modelVersion>4.1.0</modelVersion>
 	<parent>
 		<groupId>server.markhome</groupId>
-		<artifactId>server.markhome.ycf</artifactId>
+		<artifactId>server.markhome.giai</artifactId>
 		<version>3.1.42-alpha17-202611140000</version>
 	</parent>
-	<artifactId>server.markhome.ycf</artifactId>
+	<artifactId>giai-core</artifactId>
 	<version>3.1.42-alpha17-202611140000</version>
-	<groupId>server.markhome.ycf</groupId>
-	<name>server.markhome.ycf-core</name>
-	<description>Yorkton Code Fractal Core Services</description>
+	<groupId>server.markhome.giai</groupId>
+	<name>giai-core</name>
+	<description>Guided Intelligence Architecture Implementation Core Services</description>
 	<packaging>jar</packaging>
 
 	<modules>
@@ -18,14 +18,14 @@
 
 	<properties>
 		<rat.skip>true</rat.skip>
-		<url>https://github.com/msobkow/server.markhome.ycf/</url>
-		<project.url>https://github.com/msobkow/server.markhome.ycf/</project.url>
-		<project.scm.url>https://github.com/msobkow/server.markhome.ycf/</project.scm.url>
+		<url>https://github.com/msobkow/server.markhome.giai/</url>
+		<project.url>https://github.com/msobkow/server.markhome.giai/</project.url>
+		<project.scm.url>https://github.com/msobkow/server.markhome.giai/</project.scm.url>
 		<project.build.outputTimestamp>2026-09-30T00:00:00Z</project.build.outputTimestamp>
-		<package.mainClass>server.markhome.ycf.YCFLibEntry</package.mainClass>
-		<package.testMainClass>server.markhome.ycf.testYCFLibEntry</package.testMainClass>
-		<ycf.version>3.1.42-20260930</ycf.version>
-		<commons.rc.version>YCFRC1</commons.rc.version>
+		<package.mainClass>server.markhome.giai.GiAILibEntry</package.mainClass>
+		<package.testMainClass>server.markhome.giai.testGiAILibEntry</package.testMainClass>
+		<giai.version>3.1.42-20260930</giai.version>
+		<commons.rc.version>GIAIRC1</commons.rc.version>
 		<changes.announcementDirectory>.</changes.announcementDirectory>
 		<changes.announcementFile>RELEASE-NOTES.txt</changes.announcementFile>
 		<commons.animal-sniffer.signature.version>1.0</commons.animal-sniffer.signature.version>
@@ -59,14 +59,14 @@
 		<commons.conf.dir>${project.basedir}/src/conf</commons.conf.dir>
 		<commons.cyclonedx.version>2.9.2</commons.cyclonedx.version>
 		<commons.deployment.protocol>scp</commons.deployment.protocol>
-		<commons.deploy-plugin.version>4.0.0-beta-2</commons.deploy-plugin.version>
+		<commons.deploy-plugin.version>4.0.0-beta-3</commons.deploy-plugin.version>
 		<commons.docEncoding>${commons.encoding}</commons.docEncoding>
 		<commons.encoding>UTF-8</commons.encoding>
 		<commons.exec-plugin.version>3.6.3</commons.exec-plugin.version>
 		<commons.failsafe.version>3.5.6</commons.failsafe.version>
 		<commons.felix.version>6.1.0</commons.felix.version>
 		<commons.gpg.version>3.2.8</commons.gpg.version>
-		<commons.install-plugin.version>4.0.0-beta-2</commons.install-plugin.version>
+		<commons.install-plugin.version>4.0.0-beta-3</commons.install-plugin.version>
 		<commons.jacoco.branchRatio>1.00</commons.jacoco.branchRatio>
 		<commons.jacoco.classRatio>1.00</commons.jacoco.classRatio>
 		<commons.jacoco.complexityRatio>1.00</commons.jacoco.complexityRatio>
@@ -111,10 +111,10 @@
 		<commons.native-plugin.version>1.1.10</commons.native-plugin.version>
 		<commons.osgi.dynamicImport />
 		<commons.osgi.excludeDependencies>true</commons.osgi.excludeDependencies>
-		<commons.osgi.export>server.markhome.ycf.*;version=${project.version};-noimport:=true</commons.osgi.export>
+		<commons.osgi.export>server.markhome.giai.*;version=${project.version};-noimport:=true</commons.osgi.export>
 		<commons.osgi.import>*</commons.osgi.import>
 		<commons.osgi.private />
-		<commons.osgi.symbolicName>server.markhome.ycf.${commons.packageId}</commons.osgi.symbolicName>
+		<commons.osgi.symbolicName>server.markhome.giai.${commons.packageId}</commons.osgi.symbolicName>
 		<commons.packageId>${project.artifactId}</commons.packageId>
 		<commons.pmd-core.version>${commons.pmd.version}</commons.pmd-core.version>
 		<commons.pmd-impl.version>${commons.pmd.version}</commons.pmd-impl.version>
@@ -772,7 +772,7 @@
 					</executions>
 					<configuration>
 						<serverId>nexus</serverId>
-						<nexusUrl>http://nexus3.ycf.markhome.server:8081/repository/ycf.markhome.server-hosted/</nexusUrl>
+						<nexusUrl>http://nexus3.giai.markhome.server:8081/repository/giai.markhome.server-hosted/</nexusUrl>
 								<skipStaging>true</skipStaging>
 							</configuration>
 						</plugin>
