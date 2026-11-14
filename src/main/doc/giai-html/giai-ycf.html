@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!--
+ *	$Revision$
+-->
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" content="text/html; charset=iso-8859-1">
+	<META HTTP-EQUIV="CONTENT-SCRIPT-TYPE" content="text/javascript">
+	<META HTTP-EQUIV="CONTENT-STYLE-TYPE" content="text/css">
+	<meta http-equiv="refresh" content="86400">
+	<meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate">
+	<TITLE>GiAI v1.1 Yorkton Code Fractal</TITLE>
+	<LINK rel="stylesheet" HRef="css/cf-content.css" type="text/css">
+</HEAD>
+<BODY>
+<p>
+<CENTER><H1>
+<A Target="_blank" HRef="index.html"><img align=vcenter src="resources/MSS-BadgeLogo-98x80.png" width="100" height="80"/></A>
+&nbsp;&nbsp;&nbsp;GiAI v1.1 Yorkton Code Fractal&nbsp;&nbsp;&nbsp;
+</H1></CENTER>
+<p>
+<table cols="3" width="95%" align="center">
+	<tr><td align="left"><A HRef="giai-devlog.html">Prev</A></td>
+		<td align="center"><A HRef="index.html">Home</A></td>
+		<td align="right"><A HRef="index.html">Next</A></td>
+		</tr>
+</table>
+<p>
+<CENTER><H2>GiAI v1.1 Yorkton Code Fractal</H2></CENTER>
+<p>
+<A HRef="giai-ycf/index.html">GiAI v1.1 Yorkton Code Fractal</A> (formerly MSS Code Factory) is a tool used to accelerate the production of the repetitive code that comprises 75-95% of the typical enterprise business application - the "glue" between the business logic programmer and the backing data servers and databases. It does so by applying a knowledge base of General Expansion Rule (GEL) files following specific XML document schemas and semantic constraints to a Business Application Model (BAM), which is an enhanced ERD constrained by a customized schema definition available here: <a href="msscf/2.0.13/xsd/mssbam-2.13.xsd">mssbam-2.13.xsd</a>, with 3.1 using an updated ycf/3.0.1/xsd/mssbam-3.1.xsd specification adapted to the new capabilities of the customized CFCore Engine eventualy implemented for the 3.1 BAM.
+<p>
+The BAM defines the tables, indexes, and relationships of an ERD, including Superclass, Container/Component, Parent/Child, and Lookup relationships. It also provides the means of encapsulating customizations of the output source code, with the approach changing radically compared to the old 2.0.12/2.0.13 approach of hard-coded verbs in the custom engine. Both 2.0.13 and 3.1 implement a new feature called  "tweaks" that lets you define arbitrary fragments of GEL rules associated with the Schemas, Tables, Indexes, and Relationships of a BAM.
+<p>
+Yorkton Code Fractal v3.1 implements TeaVM support allowing the application to connect a TeaVM-compiled JavaScript client to the back end services over both JSON and binary stream protocols, where the JSON form will be used with HTTPS GET/POST requests, and the binary stream protocol will be supported by Web Sockets. A long-in-the-tooth ASN.1 technology is being used to implement the lowest level of the binary stream protocols, and will ensure that the only thing to debug is the message <i>formats</i>, not the binary representation of the message contents.  JSON will rely on the existing Xml type formatting and parsing provided by IGiAIXmlUtil.
+<p>
+A key goal of the current technology update is to ensure that there is full n-way orthogonal comparison and construction between the various atomic types in the core code base, including the new KeyHash types, and possibly the idea that keys and indexes of all types should generically be treated similar to the atomic types, and exhibit full orthogonal behaviour. The code base is well on its way to implementing full orthogonality, with comparison and assignment between index keys, buffer records, history buffers, primary keys, and history primary keys. If full orthogonality is available, then it becomes possible to more easily stitch together the resulting code with set constructs for easy filtering and processing.
+<p>
+</BODY>
+</HTML>
