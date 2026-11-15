@@ -1,0 +1,13 @@
+		<module>giai-ycf-v3_1-secure-core</module>
+		<module>giai-ycf-v3_1-secure-pub</module>
+		<module>giai-ycf-v3_1-secure-prot</module>
+		<module>giai-ycf-v3_1-secure-javafx</module>
+		<module>giai-ycf-v3_1-secure-jpa</module>
+		<module>giai-ycf-v3_1-secure-jpatest</module>
+		<module>giai-ycf-v3_1-secure-saxloader</module>
+		<module>giai-ycf-v3_1-secure-ram</module>
+		<module>giai-ycf-v3_1-secure-saxramldr</module>
+		<module>giai-ycf-v3_1-secure-ramtest</module>
+		<module>giai-ycf-v3_1-secure-appsetup</module>
+		<module>giai-ycf-v3_1-secure-appsetupfx</module>
+		<module>giai-ycf-v3_1-secure-rust</module>

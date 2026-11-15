@@ -1,0 +1,459 @@
+// Description: Java 25 implementation of a DelSubDep3 history buffer object
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.intnet.intnet.buff;
+
+import java.lang.reflect.*;
+import java.io.*;
+import java.math.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;
+import server.markhome.ycf.v3_1.secure.securepub.*;
+import server.markhome.ycf.v3_1.intnet.intnetpub.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelpub.*;
+import server.markhome.ycf.v3_1.secure.securepubobj.*;
+import server.markhome.ycf.v3_1.intnet.intnetpubobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelpubobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelprot.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelprotobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodel.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelobj.*;
+
+public class BusModelBuffDelSubDep3H extends BusModelBuffDelDepH
+    implements IBusModelDelSubDep3H
+{
+	protected ICFKeyHash256 requiredDelSubDep2Id;
+	protected String requiredName;
+
+    public BusModelBuffDelSubDep3H() {
+            super();
+		requiredDelSubDep2Id = CFDbKeyHash256.fromHex( IBusModelPubDelSubDep3.DELSUBDEP2ID_INIT_VALUE.toString() );
+		requiredName = IBusModelPubDelSubDep3.NAME_INIT_VALUE;
+    }
+
+    @Override
+    public int getClassCode() {
+            return( IBusModelDelSubDep3.CLASS_CODE );
+    }
+
+	@Override
+	public ICFKeyHash256 getRequiredDelSubDep2Id() {
+		return(requiredDelSubDep2Id);
+	}
+
+	public void setRequiredDelSubDep2Id( ICFKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFNullArgumentException( getClass(),
+				"setRequiredDelSubDep2Id",
+				1,
+				"value" );
+		}
+		requiredDelSubDep2Id = value;
+	}
+
+	@Override
+	public String getRequiredName() {
+		return(requiredName);
+	}
+
+	public void setRequiredName( String value ) {
+		if( value == null ) {
+			throw new CFNullArgumentException( getClass(),
+				"setRequiredName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 192 ) {
+			throw new CFArgumentOverflowException( getClass(),
+				"setRequiredName",
+				1,
+				"value.length()",
+				value.length(),
+				192 );
+		}
+		requiredName = value;
+	}
+
+    @Override
+    public boolean equals( Object obj ) {
+        if (obj == null) {
+            return( false );
+        }
+        else if (obj instanceof IBusModelDelSubDep3) {
+            IBusModelDelSubDep3 rhs = (IBusModelDelSubDep3)obj;
+        if (!super.equals(obj)) {
+            return( false );
+        }
+			if( getRequiredDelSubDep2Id() != null ) {
+				if( rhs.getRequiredDelSubDep2Id() != null ) {
+					if( ! getRequiredDelSubDep2Id().equals( rhs.getRequiredDelSubDep2Id() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredDelSubDep2Id() != null ) {
+					return( false );
+				}
+			}
+			if( getRequiredName() != null ) {
+				if( rhs.getRequiredName() != null ) {
+					if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredName() != null ) {
+					return( false );
+				}
+			}
+            return( true );
+        }
+        else if (obj instanceof IBusModelDelSubDep3H) {
+			if (!super.equals(obj)) {
+				return( false );
+			}
+            IBusModelDelSubDep3H rhs = (IBusModelDelSubDep3H)obj;
+        if (!super.equals(obj)) {
+            return( false );
+        }
+			if( getRequiredDelSubDep2Id() != null ) {
+				if( rhs.getRequiredDelSubDep2Id() != null ) {
+					if( ! getRequiredDelSubDep2Id().equals( rhs.getRequiredDelSubDep2Id() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredDelSubDep2Id() != null ) {
+					return( false );
+				}
+			}
+			if( getRequiredName() != null ) {
+				if( rhs.getRequiredName() != null ) {
+					if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredName() != null ) {
+					return( false );
+				}
+			}
+            return( true );
+        }
+        else if (obj instanceof IBusModelScopeHPKey) {
+			return( super.equals(obj) );
+        }
+        else if (obj instanceof IBusModelDelSubDep3ByDelSubDep2IdxKey) {
+            IBusModelDelSubDep3ByDelSubDep2IdxKey rhs = (IBusModelDelSubDep3ByDelSubDep2IdxKey)obj;
+			if( getRequiredDelSubDep2Id() != null ) {
+				if( rhs.getRequiredDelSubDep2Id() != null ) {
+					if( ! getRequiredDelSubDep2Id().equals( rhs.getRequiredDelSubDep2Id() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredDelSubDep2Id() != null ) {
+					return( false );
+				}
+			}
+            return( true );
+        }
+        else if (obj instanceof IBusModelDelSubDep3ByUNameIdxKey) {
+            IBusModelDelSubDep3ByUNameIdxKey rhs = (IBusModelDelSubDep3ByUNameIdxKey)obj;
+			if( getRequiredDelSubDep2Id() != null ) {
+				if( rhs.getRequiredDelSubDep2Id() != null ) {
+					if( ! getRequiredDelSubDep2Id().equals( rhs.getRequiredDelSubDep2Id() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredDelSubDep2Id() != null ) {
+					return( false );
+				}
+			}
+			if( getRequiredName() != null ) {
+				if( rhs.getRequiredName() != null ) {
+					if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredName() != null ) {
+					return( false );
+				}
+			}
+            return( true );
+        }
+        else {
+			return( super.equals(obj) );
+        }
+    }
+    
+    @Override
+    public int hashCode() {
+        int hashCode = super.hashCode();
+		hashCode = hashCode + getRequiredDelSubDep2Id().hashCode();
+		if( getRequiredName() != null ) {
+			hashCode = hashCode + getRequiredName().hashCode();
+		}
+        return( hashCode & 0x7fffffff );
+    }
+
+    @Override
+    public int compareTo( Object obj ) {
+        int cmp;
+        if (obj == null) {
+            return( 1 );
+        }
+        else if (obj instanceof IBusModelDelSubDep3) {
+        cmp = super.compareTo(obj);
+        if (cmp != 0) {
+            return( cmp );
+        }
+        IBusModelDelSubDep3 rhs = (IBusModelDelSubDep3)obj;
+			if (getRequiredDelSubDep2Id() != null) {
+				if (rhs.getRequiredDelSubDep2Id() != null) {
+					cmp = getRequiredDelSubDep2Id().compareTo( rhs.getRequiredDelSubDep2Id() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredDelSubDep2Id() != null) {
+				return( -1 );
+			}
+			if (getRequiredName() != null) {
+				if (rhs.getRequiredName() != null) {
+					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredName() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof IBusModelScopeHPKey) {
+        return( super.compareTo(obj) );
+        }
+        else if (obj instanceof IBusModelDelSubDep3H) {
+        cmp = super.compareTo(obj);
+        if (cmp != 0) {
+            return( cmp );
+        }
+        IBusModelDelSubDep3H rhs = (IBusModelDelSubDep3H)obj;
+			if (getRequiredDelSubDep2Id() != null) {
+				if (rhs.getRequiredDelSubDep2Id() != null) {
+					cmp = getRequiredDelSubDep2Id().compareTo( rhs.getRequiredDelSubDep2Id() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredDelSubDep2Id() != null) {
+				return( -1 );
+			}
+			if (getRequiredName() != null) {
+				if (rhs.getRequiredName() != null) {
+					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredName() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof IBusModelDelSubDep3ByDelSubDep2IdxKey ) {
+            IBusModelDelSubDep3ByDelSubDep2IdxKey rhs = (IBusModelDelSubDep3ByDelSubDep2IdxKey)obj;
+			if (getRequiredDelSubDep2Id() != null) {
+				if (rhs.getRequiredDelSubDep2Id() != null) {
+					cmp = getRequiredDelSubDep2Id().compareTo( rhs.getRequiredDelSubDep2Id() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredDelSubDep2Id() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof IBusModelDelSubDep3ByUNameIdxKey ) {
+            IBusModelDelSubDep3ByUNameIdxKey rhs = (IBusModelDelSubDep3ByUNameIdxKey)obj;
+			if (getRequiredDelSubDep2Id() != null) {
+				if (rhs.getRequiredDelSubDep2Id() != null) {
+					cmp = getRequiredDelSubDep2Id().compareTo( rhs.getRequiredDelSubDep2Id() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredDelSubDep2Id() != null) {
+				return( -1 );
+			}
+			if (getRequiredName() != null) {
+				if (rhs.getRequiredName() != null) {
+					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredName() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else {
+        return( super.compareTo(obj) );
+        }
+    }
+	@Override
+    public void set( IBusModelScope src ) {
+		if( src instanceof BusModelBuffDelSubDep3 ) {
+			setDelSubDep3( (BusModelBuffDelSubDep3)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"src",
+				src,
+				"BusModelBuffDelSubDep3" );
+		}
+    }
+
+	@Override
+    public void setDelSubDep3( IBusModelDelSubDep3 src ) {
+        super.setDelDep( src );
+		setRequiredDelSubDep2Id( src.getRequiredDelSubDep2Id() );
+		setRequiredName( src.getRequiredName() );
+    }
+
+	@Override
+    public void set( IBusModelScopeH src ) {
+		if( src instanceof IBusModelDelSubDep3H ) {
+			setDelSubDep3( (IBusModelDelSubDep3H)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+					"set",
+					"src",
+					src,
+					"IBusModelDelSubDep3H" );
+		}
+    }
+
+	@Override
+    public void setDelSubDep3( IBusModelDelSubDep3H src ) {
+        super.setDelDep( src );
+		setRequiredDelSubDep2Id( src.getRequiredDelSubDep2Id() );
+		setRequiredName( src.getRequiredName() );
+    }
+
+    public String getXmlAttrFragment() {
+        String ret = super.getXmlAttrFragment() 
+			+ " RequiredDelSubDep2Id=" + "\"" + getRequiredDelSubDep2Id().toString() + "\""
+			+ " RequiredName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredName() ) + "\"";
+        return( ret );
+    }
+
+    public String toString() {
+        String ret = "<BusModelBuffDelSubDep3H" + getXmlAttrFragment() + "/>";
+        return( ret );
+    }
+}

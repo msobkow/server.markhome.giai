@@ -4,12 +4,12 @@
   <parent>
     <groupId>giai-ycf</groupId>
     <artifactId>giai-ycf-v2_13</artifactId>
-    <version>2.13.42-alpha17-202611140000</version>
+    <version>2.13.42-alpha17-202611142100</version>
   </parent>
 
   <groupId>giai-ycf-v2_13</groupId>
   <artifactId>giai-ycf-v2_13-ycflib.CFLib.DbTest</artifactId>
-  <version>2.13.42-alpha17-202611140000</version>
+  <version>2.13.42-alpha17-202611142100</version>
   <name>server.markhome.giai.v2_13.ycflib.CFLib.DbTest</name>
   <description>MSS Code Factory 2.13 CFLibDbTest - Database Utility Test Program</description>
   <url>https://msobkow.github.io/ycf/</url>
@@ -28,7 +28,7 @@
     <dependency>
       <groupId>giai-ycf-v2_13</groupId>
       <artifactId>giai-ycf-v2_13-ycflib.CFLib</artifactId>
-      <version>2.13.42-alpha17-202611140000</version>
+      <version>2.13.42-alpha17-202611142100</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

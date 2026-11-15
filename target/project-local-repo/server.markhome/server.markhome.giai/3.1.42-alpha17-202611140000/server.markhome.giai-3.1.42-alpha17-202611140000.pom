@@ -2,26 +2,30 @@
 <project xmlns="http://maven.apache.org/POM/4.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 http://maven.apache.org/xsd/maven-4.1.0.xsd" root="true">
 	<modelVersion>4.1.0</modelVersion>
 	<artifactId>server.markhome.giai</artifactId>
-	<version>3.1.42-alpha17-202611140000</version>
+	<version>1.1.42-alpha17-202611142100</version>
 	<groupId>server.markhome</groupId>
 	<name>server.markhome.giai</name>
-	<description>Yorkton Code Fractal</description>
+	<description>Guided Intelligence Architecture Implementation - Project GiAI v1.1</description>
 	<packaging>pom</packaging>
 
 	<modules>
 		<module>giai-core</module>
+		<!--module>giai-ycf</module-->
 	</modules>
 
 	<properties>
+		<url>https://github.com/msobkow/server.markhome.giai/</url>
+		<project.url>https://msobkow.github.io/</project.url>
+		<project.scm.url>https://github.com/msobkow/server.markhome.giai.git</project.scm.url>
+		<project.build.outputTimestamp>202611142100</project.build.outputTimestamp>
+		<package.mainClass>server.markhome.giai.core.GiAILibEntry</package.mainClass>
+		<package.testMainClass>server.markhome.giai.core.testGiAILibEntry</package.testMainClass>
+		<giai.version>1.1.42-alpha17-202611142100</giai.version>
+		<commons.rc.version>alpha17</commons.rc.version>
+		<giai.rc.version>alpha17</giai.rc.version>
+		<core.giai.version>1.1.42-alpha17-202611142100</core.giai.version>
+		<core.giai.rc.version>alpha17</core.giai.rc.version>
 		<rat.skip>true</rat.skip>
-		<url>git://git.giai.markhome.server/msobkow/server.markhome.giai</url>
-		<project.url>https://www.giai.markhome.server/server.markhome.giai/</project.url>
-		<project.scm.url>git://git.giai.markhome.server/msobkow/server.markhome.giai/</project.scm.url>
-		<project.build.outputTimestamp>202611071400</project.build.outputTimestamp>
-		<package.mainClass>server.markhome.giai.YCFLibEntry</package.mainClass>
-		<package.testMainClass>server.markhome.giai.testYCFLibEntry</package.testMainClass>
-		<giai.version>3.1.42-alpha17-202611140000</giai.version>
-		<commons.rc.version>YCFRC1</commons.rc.version>
 		<changes.announcementDirectory>.</changes.announcementDirectory>
 		<changes.announcementFile>RELEASE-NOTES.txt</changes.announcementFile>
 		<commons.animal-sniffer.signature.version>1.0</commons.animal-sniffer.signature.version>
@@ -52,7 +56,7 @@
 		<commons.compiler.release>25</commons.compiler.release>
 		<commons.compiler.version>3.15.0</commons.compiler.version>
 		<commons.componentid>parent</commons.componentid>
-		<commons.conf.dir>src/conf</commons.conf.dir>
+		<commons.conf.dir>${project.basedir}/src/conf</commons.conf.dir>
 		<commons.cyclonedx.version>2.9.2</commons.cyclonedx.version>
 		<commons.deployment.protocol>scp</commons.deployment.protocol>
 		<commons.deploy-plugin.version>4.0.0-beta-3</commons.deploy-plugin.version>
@@ -93,21 +97,21 @@
 		<commons.jmh.version>1.37</commons.jmh.version>
 		<commons.junit-pioneer.version>1.9.1</commons.junit-pioneer.version>
 		<commons.junit-platform.version>1.14.4</commons.junit-platform.version>
-		<commons.junit.version>6.1.3</commons.junit.version>
+		<commons.junit.version>5.14.4</commons.junit.version>
 		<commons.jxr.version>3.6.0</commons.jxr.version>
 		<commons.main.branch>master</commons.main.branch>
 		<commons.manifestfile>${project.build.directory}/osgi/MANIFEST.MF</commons.manifestfile>
-		<common.resources-plugin.version>3.3.0</common.resources-plugin.version>
+		<commons.resources-plugin.version>3.3.0</commons.resources-plugin.version>
 		<commons.site-plugin.version>3.22.0</commons.site-plugin.version>
 		<commons.toolchains-plugin.version>???</commons.toolchains-plugin.version>
-		<commons.mockito.version>5.24.0</commons.mockito.version>
+		<commons.mockito.version>4.11.0</commons.mockito.version>
 		<commons.moditect-maven-plugin.addServiceUses>true</commons.moditect-maven-plugin.addServiceUses>
 		<commons.moditect-plugin.version>1.3.0.Final</commons.moditect-plugin.version>
 		<commons.module.name>org.apache.commons.${commons.packageId}</commons.module.name>
 		<commons.native-plugin.version>1.1.10</commons.native-plugin.version>
 		<commons.osgi.dynamicImport />
 		<commons.osgi.excludeDependencies>true</commons.osgi.excludeDependencies>
-		<commons.osgi.export>server.markhomegiai.*;version=${project.version};-noimport:=true</commons.osgi.export>
+		<commons.osgi.export>server.markhome.giai.*;version=${project.version};-noimport:=true</commons.osgi.export>
 		<commons.osgi.import>*</commons.osgi.import>
 		<commons.osgi.private />
 		<commons.osgi.symbolicName>server.markhome.giai.${commons.packageId}</commons.osgi.symbolicName>
@@ -169,40 +173,45 @@
 
 	<licenses>
 		<license>
-			<name>Apache-2.0-or-later</name>
-			<url>https://apache.org/</url>
+			<name>LGPL-3.0-or-later</name>
+			<url>https://gnu.org/</url>
+			<distribution>repo</distribution>
+		</license>
+		<license>
+			<name>LicenseRef-GiAIDualLGPL-3.0-or-later</name>
+			<url>https://msobkow.github.io/licenses/</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
+			<!--dependency>
 				<groupId>org.teavm</groupId>
 				<artifactId>teavm-classlib</artifactId>
 				<version>${commons.teavm.version}</version>
 				<scope>provided</scope>
-			</dependency>
-			<dependency>
+			</dependency-->
+			<!--dependency>
 				<groupId>org.teavm</groupId>
 				<artifactId>teavm-jso</artifactId>
 				<version>${commons.teavm.version}</version>
-			</dependency>
-			<dependency>
+			</dependency-->
+			<!--dependency>
 				<groupId>org.teavm</groupId>
 				<artifactId>teavm-jso-apis</artifactId>
 				<version>${commons.teavm.version}</version>
-			</dependency>
-			<dependency>
+			</dependency-->
+			<!--dependency>
 				<groupId>org.teavm</groupId>
 				<artifactId>teavm-browser-runner</artifactId>
 				<version>${commons.teavm.version}</version>
-			</dependency>
-			<dependency>
+			</dependency-->
+			<!--dependency>
 				<groupId>org.teavm</groupId>
 				<artifactId>teavm-tooling</artifactId>
 				<version>${commons.teavm.version}</version>
-			</dependency>
+			</dependency-->
 			<dependency>
 				<groupId>org.junit</groupId>
 				<artifactId>junit-bom</artifactId>
@@ -211,33 +220,88 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-text</artifactId>
-				<version>${commons.text.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.openjdk.jmh</groupId>
-				<artifactId>jmh-core</artifactId>
-				<version>${commons.jmh.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.openjdk.jmh</groupId>
-				<artifactId>jmh-generator-annprocess</artifactId>
-				<version>${commons.jmh.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.google.code.findbugs</groupId>
-				<artifactId>jsr305</artifactId>
-				<version>${google-code-findbugs.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
 				<groupId>org.junit-pioneer</groupId>
 				<artifactId>junit-pioneer</artifactId>
 				<version>${commons.junit-pioneer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-bom</artifactId>
+				<version>${commons.mockito.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>${commons.mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-android</artifactId>
+				<version>${commons.mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-errorprone</artifactId>
+				<version>${commons.mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-inline</artifactId>
+				<version>${commons.mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-junit-jupiter</artifactId>
+				<version>${commons.mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-proxy</artifactId>
+				<version>${commons.mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-subclass</artifactId>
+				<version>${commons.mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter</artifactId>
+				<version>${commons.junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-api</artifactId>
+				<version>${commons.junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-engine</artifactId>
+				<version>${commons.junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-migrationsupport</artifactId>
+				<version>${commons.junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-params</artifactId>
+				<version>${commons.junit.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.junit.platform</groupId>
@@ -312,85 +376,6 @@
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter</artifactId>
-				<version>${commons.junit.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-api</artifactId>
-				<version>${commons.junit.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-engine</artifactId>
-				<version>${commons.junit.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-migrationsupport</artifactId>
-				<version>${commons.junit.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-params</artifactId>
-				<version>${commons.junit.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-bom</artifactId>
-				<version>${commons.mockito.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-core</artifactId>
-				<version>${commons.mockito.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-android</artifactId>
-				<version>${commons.mockito.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-errorprone</artifactId>
-				<version>${commons.mockito.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-inline</artifactId>
-				<version>${commons.mockito.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-junit-jupiter</artifactId>
-				<version>${commons.mockito.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-proxy</artifactId>
-				<version>${commons.mockito.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-subclass</artifactId>
-				<version>${commons.mockito.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
 				<groupId>org.junit.vintage</groupId>
 				<artifactId>junit-vintage-engine</artifactId>
 				<version>${commons.junit.version}</version>
@@ -400,6 +385,31 @@
 				<groupId>org.easymock</groupId>
 				<artifactId>easymock</artifactId>
 				<version>${easymock.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- For Javadoc links -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-text</artifactId>
+				<version>${commons.text.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.openjdk.jmh</groupId>
+				<artifactId>jmh-core</artifactId>
+				<version>${commons.jmh.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.openjdk.jmh</groupId>
+				<artifactId>jmh-generator-annprocess</artifactId>
+				<version>${commons.jmh.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.findbugs</groupId>
+				<artifactId>jsr305</artifactId>
+				<version>${google-code-findbugs.version}</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
@@ -418,6 +428,235 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+	<dependencies>
+		<!--dependency>
+			<groupId>org.teavm</groupId>
+			<artifactId>teavm-classlib</artifactId>
+			<version>${commons.teavm.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.teavm</groupId>
+			<artifactId>teavm-jso</artifactId>
+			<version>${commons.teavm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.teavm</groupId>
+			<artifactId>teavm-jso-apis</artifactId>
+			<version>${commons.teavm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.teavm</groupId>
+			<artifactId>teavm-browser-runner</artifactId>
+			<version>${commons.teavm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.teavm</groupId>
+			<artifactId>teavm-tooling</artifactId>
+			<version>${commons.teavm.version}</version>
+		</dependency-->
+		<dependency>
+			<groupId>org.junit</groupId>
+			<artifactId>junit-bom</artifactId>
+			<version>${commons.junit.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit-pioneer</groupId>
+			<artifactId>junit-pioneer</artifactId>
+			<version>${commons.junit-pioneer.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-bom</artifactId>
+			<version>${commons.mockito.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${commons.mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-android</artifactId>
+			<version>${commons.mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-errorprone</artifactId>
+			<version>${commons.mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-inline</artifactId>
+			<version>${commons.mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${commons.mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-proxy</artifactId>
+			<version>${commons.mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-subclass</artifactId>
+			<version>${commons.mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${commons.junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${commons.junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${commons.junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-migrationsupport</artifactId>
+			<version>${commons.junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>${commons.junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-commons</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-console</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-engine</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-jfr</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-reporting</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite-api</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite-commons</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite-engine</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-testkit</artifactId>
+			<version>${commons.junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<version>${commons.junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>${easymock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- For Javadoc links -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>${commons.text.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.openjdk.jmh</groupId>
+			<artifactId>jmh-core</artifactId>
+			<version>${commons.jmh.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.openjdk.jmh</groupId>
+			<artifactId>jmh-generator-annprocess</artifactId>
+			<version>${commons.jmh.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>${google-code-findbugs.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<extensions>
 			<extension>
@@ -430,57 +669,59 @@
 		<resources>
 			<!-- This is the default setting from the super-pom -->
 			<resource>
-			<directory>src/main/resources</directory>
+				<directory>src/main/resources</directory>
 			</resource>
 			<resource>
-			<directory>src/main/resources</directory>
-			<targetPath>js</targetPath>
-			<includes>
-				<include>NOTICE.txt</include>
-				<include>LICENSE.txt</include>
-				<include>NOTICE</include>
-				<include>LICENSE</include>
-			</includes>
+				<directory>src/main/resources</directory>
+				<targetPath>js</targetPath>
+				<includes>
+					<include>NOTICE.txt</include>
+					<include>LICENSE.txt</include>
+					<include>NOTICE</include>
+					<include>LICENSE</include>
+				</includes>
 			</resource>
 			<!-- hack to ensure the N&L appear in jars -->
 			<resource>
-			<directory>${basedir}</directory>
-			<targetPath>META-INF</targetPath>
-			<includes>
-				<include>NOTICE.txt</include>
-				<include>LICENSE.txt</include>
-				<include>NOTICE</include>
-				<include>LICENSE</include>
-			</includes>
+				<directory>${basedir}</directory>
+				<targetPath>META-INF</targetPath>
+				<includes>
+					<include>NOTICE.txt</include>
+					<include>LICENSE.txt</include>
+					<include>NOTICE</include>
+					<include>LICENSE</include>
+				</includes>
 			</resource>
 		</resources>
+
 		<testResources>
 			<!-- This is the default setting from the super-pom -->
 			<testResource>
-			<directory>src/test/resources</directory>
+				<directory>src/test/resources</directory>
 			</testResource>
 			<testResource>
-			<directory>src/test/resources</directory>
-			<includes>
-				<include>NOTICE.txt</include>
-				<include>LICENSE.txt</include>
-				<include>NOTICE</include>
-				<include>LICENSE</include>
-			</includes>
-			<targetPath>js</targetPath>
+				<directory>src/test/resources</directory>
+				<includes>
+					<include>NOTICE.txt</include>
+					<include>LICENSE.txt</include>
+					<include>NOTICE</include>
+					<include>LICENSE</include>
+				</includes>
+				<targetPath>js</targetPath>
 			</testResource>
 			<!-- hack to ensure the N&L appear in jars -->
 			<testResource>
-			<directory>${basedir}</directory>
-			<targetPath>META-INF</targetPath>
-			<includes>
-				<include>NOTICE.txt</include>
-				<include>LICENSE.txt</include>
-				<include>NOTICE</include>
-				<include>LICENSE</include>
-			</includes>
+				<directory>${basedir}</directory>
+				<targetPath>META-INF</targetPath>
+				<includes>
+					<include>NOTICE.txt</include>
+					<include>LICENSE.txt</include>
+					<include>NOTICE</include>
+					<include>LICENSE</include>
+				</includes>
 			</testResource>
 		</testResources>
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -521,82 +762,82 @@
 						<nexusUrl>http://nexus3.giai.markhome.server:8081/repository/giai.markhome.server-hosted/</nexusUrl>
 								<skipStaging>true</skipStaging>
 							</configuration>
-						</plugin>
-						<!-- org.apache.maven.plugins, alpha order by artifact id -->
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-compiler-plugin</artifactId>
-							<version>${commons.compiler.version}</version>
-							<configuration>
-								<source>${maven.compiler.source}</source>
-								<target>${maven.compiler.target}</target>
-								<encoding>${commons.encoding}</encoding>
-								<!--
-									fork is set true by the java-1.x profiles
-									This allows the use of a different version of the compiler from the
-									JDK being used to run Maven
-								-->
-								<fork>${commons.compiler.fork}</fork>
-								<!-- the following are only needed if fork is true -->
-								<compilerVersion>${commons.compiler.compilerVersion}</compilerVersion>
-								<executable>${commons.compiler.javac}</executable>
-								<compilerArgs>
-									<!-- Disable annotation processing during compile -->
-									<!-- Background: https://www.oracle.com/java/technologies/javase/23-relnote-issues.html#JDK-8321314 -->
-									<!-- Background: https://xdev.software/en/news/detail/discovering-the-perfect-java-supply-chain-attack-vector-and-how-it-got-fixed -->
-									<arg>-proc:none</arg>
-								</compilerArgs>
-							</configuration>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-assembly-plugin</artifactId>
-							<version>${commons.assembly-plugin.version}</version>
-						</plugin>
-						<!-- Apache parent includes docck -->
-						<!-- Apache parent: invoker -->
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-javadoc-plugin</artifactId>
-							<version>${commons.javadoc.version}</version>
-							<configuration>						
-								<!-- Keep only errors and warnings -->
-								<quiet>true</quiet>
-								<source>${maven.compiler.source}</source>
-								<javadocExecutable>${commons.compiler.javadoc}</javadocExecutable>
-								<encoding>${commons.encoding}</encoding>
-								<docencoding>${commons.docEncoding}</docencoding>
-								<!-- Prevent too many SCM changes -->
-								<notimestamp>true</notimestamp>
-								<linksource>true</linksource>
-								<links>
-									<link>${commons.javadoc.javaee.link}</link>
-								</links>
-								<additionalOptions>${commons.javadoc.options}</additionalOptions>
-								<!-- &#160; is non-breaking space -->
-								<bottom>
-									Copyright © {inceptionYear}-{currentYear} {organizationName}. All rights reserved.&lt;/br&gt;
-									&lt;a href="${project.url}">${project.name}&lt;/a&gt; |&#160;
-									&lt;a href="${project.issueManagement.url}">Issue management&lt;/a&gt; |&#160;
-									&lt;a href="${project.scm.url}">Source repository&lt;/a&gt;
-								</bottom>
-								<failOnWarnings>${commons.javadoc.failOnWarnings}</failOnWarnings>
-							</configuration>
-						</plugin>
-						<plugin>
-							<!-- TODO see above - find better way to add N&L files to jars and test jars -->
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-remote-resources-plugin</artifactId>
-							<version>${common.resources-plugin.version}</version>
-							<configuration>
-								<!--
-									Apache parent POM automatically adds "LICENSE" and "NOTICE" files
-									to jars - duplicating the "LICENSE.txt" and "NOTICE.txt"
-									files that components already have.
-								-->
-								<skip>true</skip>
-							</configuration>
-						</plugin>
+				</plugin>
+				<!-- org.apache.maven.plugins, alpha order by artifact id -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${commons.compiler.version}</version>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+						<encoding>${commons.encoding}</encoding>
+						<!--
+							fork is set true by the java-1.x profiles
+							This allows the use of a different version of the compiler from the
+							JDK being used to run Maven
+						-->
+						<fork>${commons.compiler.fork}</fork>
+						<!-- the following are only needed if fork is true -->
+						<compilerVersion>${commons.compiler.compilerVersion}</compilerVersion>
+						<executable>${commons.compiler.javac}</executable>
+						<compilerArgs>
+							<!-- Disable annotation processing during compile -->
+							<!-- Background: https://www.oracle.com/java/technologies/javase/23-relnote-issues.html#JDK-8321314 -->
+							<!-- Background: https://xdev.software/en/news/detail/discovering-the-perfect-java-supply-chain-attack-vector-and-how-it-got-fixed -->
+							<arg>-proc:none</arg>
+						</compilerArgs>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${commons.assembly-plugin.version}</version>
+				</plugin>
+				<!-- Apache parent includes docck -->
+				<!-- Apache parent: invoker -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${commons.javadoc.version}</version>
+					<configuration>						
+						<!-- Keep only errors and warnings -->
+						<quiet>true</quiet>
+						<source>${maven.compiler.source}</source>
+						<javadocExecutable>${commons.compiler.javadoc}</javadocExecutable>
+						<encoding>${commons.encoding}</encoding>
+						<docencoding>${commons.docEncoding}</docencoding>
+						<!-- Prevent too many SCM changes -->
+						<notimestamp>true</notimestamp>
+						<linksource>true</linksource>
+						<links>
+							<link>${commons.javadoc.javaee.link}</link>
+						</links>
+						<additionalOptions>${commons.javadoc.options}</additionalOptions>
+						<!-- &#160; is non-breaking space -->
+						<bottom>
+							Copyright © {inceptionYear}-{currentYear} {organizationName}. All rights reserved.&lt;/br&gt;
+							&lt;a href="${project.url}">${project.name}&lt;/a&gt; |&#160;
+							&lt;a href="${project.issueManagement.url}">Issue management&lt;/a&gt; |&#160;
+							&lt;a href="${project.scm.url}">Source repository&lt;/a&gt;
+						</bottom>
+						<failOnWarnings>${commons.javadoc.failOnWarnings}</failOnWarnings>
+					</configuration>
+				</plugin>
+				<plugin>
+					<!-- TODO see above - find better way to add N&L files to jars and test jars -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-remote-resources-plugin</artifactId>
+					<version>${commons.resources-plugin.version}</version>
+					<configuration>
+						<!--
+							Apache parent POM automatically adds "LICENSE" and "NOTICE" files
+							to jars - duplicating the "LICENSE.txt" and "NOTICE.txt"
+							files that components already have.
+						-->
+						<skip>true</skip>
+					</configuration>
+				</plugin>
 				<!-- Apache parent: scm -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -706,410 +947,411 @@
 						</dependency>
 					</dependencies>
 				</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-artifact-plugin</artifactId>
-							<version>${commons.artifact-plugin.version}</version>
-						</plugin>
-						<plugin>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>build-helper-maven-plugin</artifactId>
-							<version>${commons.build-helper.version}</version>
-						</plugin>
-						<plugin>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>versions-maven-plugin</artifactId>
-							<version>${commons.versions-plugin.version}</version>
-						</plugin>
-						<plugin>
-							<groupId>org.jacoco</groupId>
-							<artifactId>jacoco-maven-plugin</artifactId>
-							<version>${commons.jacoco.version}</version>
-							<!-- Note that since JaCoCo relies on an agent to perform tests,
-								it changes the surefire arguments line. If a component also
-								needs to change the argument line of maven-surefire-plugin,
-								then it must add ${argLine} property (which is set by JaCoCo)
-								in the argLine configuration element of maven-surefire-plugin
-								to preserve JaCoCo settings. -->
-							<executions>
-								<execution>
-									<id>prepare-agent</id>
-									<phase>process-test-classes</phase>
-									<goals>
-										<goal>prepare-agent</goal>
-									</goals>
-									<configuration>
-										<exclClassLoaders>jdk.internal.loader.ClassLoaders$PlatformClassLoader</exclClassLoaders>
-									</configuration>
-								</execution>
-								<execution>
-									<id>report</id>
-									<phase>site</phase>
-									<goals>
-										<goal>report</goal>
-									</goals>
-								</execution>
-								<execution>
-									<id>check</id>
-									<goals>
-										<goal>check</goal>
-									</goals>
-									<configuration>
-										<rules>
-											<rule>
-												<element>BUNDLE</element>
-												<limits>
-													<limit>
-														<counter>CLASS</counter>
-														<value>COVEREDRATIO</value>
-														<minimum>${commons.jacoco.classRatio}</minimum>
-													</limit>
-													<limit>
-														<counter>INSTRUCTION</counter>
-														<value>COVEREDRATIO</value>
-														<minimum>${commons.jacoco.instructionRatio}</minimum>
-													</limit>
-													<limit>
-														<counter>METHOD</counter>
-														<value>COVEREDRATIO</value>
-														<minimum>${commons.jacoco.methodRatio}</minimum>
-													</limit>
-													<limit>
-														<counter>BRANCH</counter>
-														<value>COVEREDRATIO</value>
-														<minimum>${commons.jacoco.branchRatio}</minimum>
-													</limit>
-													<limit>
-														<counter>LINE</counter>
-														<value>COVEREDRATIO</value>
-														<minimum>${commons.jacoco.lineRatio}</minimum>
-													</limit>
-													<limit>
-														<counter>COMPLEXITY</counter>
-														<value>COVEREDRATIO</value>
-														<minimum>${commons.jacoco.complexityRatio}</minimum>
-													</limit>
-												</limits>
-											</rule>
-										</rules>
-										<haltOnFailure>${commons.jacoco.haltOnFailure}</haltOnFailure>
-									</configuration>
-								</execution>
-							</executions>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-project-info-reports-plugin</artifactId>
-							<version>${commons.project-info.version}</version>
-							<dependencies>
-								<!-- Fix org.apache.bcel.classfile.ClassFormatException: Invalid byte tag in constant pool: 19 -->
-								<dependency>
-									<groupId>org.apache.bcel</groupId>
-									<artifactId>bcel</artifactId>
-									<version>${commons.bcel.version}</version>
-								</dependency>
-							</dependencies>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-checkstyle-plugin</artifactId>
-							<version>${commons.checkstyle-plugin.version}</version>
-							<dependencies>
-								<dependency>
-									<groupId>com.puppycrawl.tools</groupId>
-									<artifactId>checkstyle</artifactId>
-									<version>${commons.checkstyle.version}</version>
-								</dependency>
-							</dependencies>
-						</plugin>
-						<plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-artifact-plugin</artifactId>
+					<version>${commons.artifact-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${commons.build-helper.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>${commons.versions-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${commons.jacoco.version}</version>
+					<!-- Note that since JaCoCo relies on an agent to perform tests,
+						it changes the surefire arguments line. If a component also
+						needs to change the argument line of maven-surefire-plugin,
+						then it must add ${argLine} property (which is set by JaCoCo)
+						in the argLine configuration element of maven-surefire-plugin
+						to preserve JaCoCo settings. -->
+					<executions>
+						<execution>
+							<id>prepare-agent</id>
+							<phase>process-test-classes</phase>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+							<configuration>
+								<exclClassLoaders>jdk.internal.loader.ClassLoaders$PlatformClassLoader</exclClassLoaders>
+							</configuration>
+						</execution>
+						<execution>
+							<id>report</id>
+							<phase>site</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>check</id>
+							<goals>
+								<goal>check</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<rule>
+										<element>BUNDLE</element>
+										<limits>
+											<limit>
+												<counter>CLASS</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.classRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>INSTRUCTION</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.instructionRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>METHOD</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.methodRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>BRANCH</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.branchRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>LINE</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.lineRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>COMPLEXITY</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.complexityRatio}</minimum>
+											</limit>
+										</limits>
+									</rule>
+								</rules>
+								<haltOnFailure>${commons.jacoco.haltOnFailure}</haltOnFailure>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>${commons.project-info.version}</version>
+					<dependencies>
+						<!-- Fix org.apache.bcel.classfile.ClassFormatException: Invalid byte tag in constant pool: 19 -->
+						<dependency>
+							<groupId>org.apache.bcel</groupId>
+							<artifactId>bcel</artifactId>
+							<version>${commons.bcel.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>${commons.checkstyle-plugin.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>com.puppycrawl.tools</groupId>
+							<artifactId>checkstyle</artifactId>
+							<version>${commons.checkstyle.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>com.github.spotbugs</groupId>
+					<artifactId>spotbugs-maven-plugin</artifactId>
+					<version>${commons.spotbugs.plugin.version}</version>
+					<dependencies>
+						<dependency>
 							<groupId>com.github.spotbugs</groupId>
-							<artifactId>spotbugs-maven-plugin</artifactId>
-							<version>${commons.spotbugs.plugin.version}</version>
-							<dependencies>
-								<dependency>
-									<groupId>com.github.spotbugs</groupId>
-									<artifactId>spotbugs</artifactId>
-									<version>${commons.spotbugs.version}</version>
-								</dependency>
-								<dependency>
-									<groupId>org.ow2.asm</groupId>
-									<artifactId>asm</artifactId>
-									<version>${commons.asm.version}</version>
-								</dependency>
-							</dependencies>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-pmd-plugin</artifactId>
-							<version>${commons.pmd.version}</version>
-							<dependencies>
-								<dependency>
-									<groupId>org.ow2.asm</groupId>
-									<artifactId>asm</artifactId>
-									<version>${commons.asm.version}</version>
-								</dependency>
-								<dependency>
-									<groupId>net.sourceforge.pmd</groupId>
-									<artifactId>pmd-core</artifactId>
-									<version>${commons.pmd-impl.version}</version>
-								</dependency>
-								<dependency>
-									<groupId>net.sourceforge.pmd</groupId>
-									<artifactId>pmd-java</artifactId>
-									<version>${commons.pmd-impl.version}</version>
-								</dependency>
-								<dependency>
-									<groupId>net.sourceforge.pmd</groupId>
-									<artifactId>pmd-javascript</artifactId>
-									<version>${commons.pmd-impl.version}</version>
-								</dependency>
-								<dependency>
-									<groupId>net.sourceforge.pmd</groupId>
-									<artifactId>pmd-jsp</artifactId>
-									<version>${commons.pmd-impl.version}</version>
-								</dependency>
-							</dependencies>
-						</plugin>
-						<plugin>
-							<groupId>org.cyclonedx</groupId>
-							<artifactId>cyclonedx-maven-plugin</artifactId>
-							<version>${commons.cyclonedx.version}</version>
-							<executions>
-								<execution>
-									<id>build-sbom-cyclonedx</id>
-									<phase>compile</phase>
-									<goals>
-										<goal>makeAggregateBom</goal>
-									</goals>
-								</execution>
-							</executions>
+							<artifactId>spotbugs</artifactId>
+							<version>${commons.spotbugs.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.ow2.asm</groupId>
+							<artifactId>asm</artifactId>
+							<version>${commons.asm.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-pmd-plugin</artifactId>
+					<version>${commons.pmd.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.ow2.asm</groupId>
+							<artifactId>asm</artifactId>
+							<version>${commons.asm.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>net.sourceforge.pmd</groupId>
+							<artifactId>pmd-core</artifactId>
+							<version>${commons.pmd-impl.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>net.sourceforge.pmd</groupId>
+							<artifactId>pmd-java</artifactId>
+							<version>${commons.pmd-impl.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>net.sourceforge.pmd</groupId>
+							<artifactId>pmd-javascript</artifactId>
+							<version>${commons.pmd-impl.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>net.sourceforge.pmd</groupId>
+							<artifactId>pmd-jsp</artifactId>
+							<version>${commons.pmd-impl.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.cyclonedx</groupId>
+					<artifactId>cyclonedx-maven-plugin</artifactId>
+					<version>${commons.cyclonedx.version}</version>
+					<executions>
+						<execution>
+							<id>build-sbom-cyclonedx</id>
+							<phase>compile</phase>
+							<goals>
+								<goal>makeAggregateBom</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<outputName>${project.artifactId}-${project.version}-bom</outputName>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.spdx</groupId>
+					<artifactId>spdx-maven-plugin</artifactId>
+					<version>${commons.spdx.version}</version>
+					<executions>
+						<execution>
+							<id>build-sbom-spdx</id>
+							<phase>compile</phase>
+							<goals>
+								<goal>createSPDX</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>javancss-maven-plugin</artifactId>
+					<version>${commons.javancss-plugin.version}</version>
+					<dependencies>
+						<!-- javancss 33.54 is used by default
+						<dependency>
+							<groupId>org.codehaus.javancss</groupId>
+							<artifactId>javancss</artifactId>
+							<version>${commons.javancss.version}</version>
+						</dependency>
+						-->
+					</dependencies>
+					<configuration>
+						<excludes>
+							<exclude>**/*.java</exclude>
+					</excludes>					
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>taglist-maven-plugin</artifactId>
+					<version>${commons.taglist.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-changes-plugin</artifactId>
+					<version>${commons.changes.version}</version>
+					<executions>
+						<execution>
+							<id>validate-changes</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>changes-validate</goal>
+							</goals>
 							<configuration>
-								<outputName>${project.artifactId}-${project.version}-bom</outputName>
+								<failOnError>true</failOnError>
 							</configuration>
-						</plugin>
-						<plugin>
-							<groupId>org.spdx</groupId>
-							<artifactId>spdx-maven-plugin</artifactId>
-							<version>${commons.spdx.version}</version>
-							<executions>
-								<execution>
-									<id>build-sbom-spdx</id>
-									<phase>compile</phase>
-									<goals>
-										<goal>createSPDX</goal>
-									</goals>
-								</execution>
-							</executions>
-						</plugin>
-						<plugin>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>javancss-maven-plugin</artifactId>
-							<version>${commons.javancss-plugin.version}</version>
-							<dependencies>
-								<!-- javancss 33.54 is used by default
-								<dependency>
-									<groupId>org.codehaus.javancss</groupId>
-									<artifactId>javancss</artifactId>
-									<version>${commons.javancss.version}</version>
-								</dependency>
-								-->
-							</dependencies>
-							<configuration>
-								<excludes>
-									<exclude>**/*.java</exclude>
-							</excludes>					
-							</configuration>
-						</plugin>
-						<plugin>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>taglist-maven-plugin</artifactId>
-							<version>${commons.taglist.version}</version>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-changes-plugin</artifactId>
-							<version>${commons.changes.version}</version>
-							<executions>
-								<execution>
-									<id>validate-changes</id>
-									<phase>verify</phase>
-									<goals>
-										<goal>changes-validate</goal>
-									</goals>
-									<configuration>
-										<failOnError>true</failOnError>
-									</configuration>
-								</execution>
-							</executions>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-				<plugins>
-					<plugin>
-						<!-- Parent POM is released, so needs source archive for ASF mirrors -->
-						<artifactId>maven-assembly-plugin</artifactId>
-						<version>${commons.assembly-plugin.version}</version>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<!-- Parent POM is released, so needs source archive for ASF mirrors -->
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${commons.assembly-plugin.version}</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assembly/src.xml</descriptor>
+					</descriptors>
+					<tarLongFileMode>gnu</tarLongFileMode>
+				</configuration>
+			</plugin>
+			<!--plugin>
+				<!- -
+					- Copy LICENSE.txt and NOTICE.txt so that they are included
+					- in the -javadoc jar file for the component.
+				- ->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${commons.antrun-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>javadoc.resources</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
 						<configuration>
-							<descriptors>
-								<descriptor>src/assembly/src.xml</descriptor>
-							</descriptors>
-							<tarLongFileMode>gnu</tarLongFileMode>
+							<target>
+								<copy todir=${project.build.directory}/apidocs/META-INF">
+									<fileset dir=${basedir}">
+										<include name="LICENSE.txt" />
+										<include name="NOTICE.txt" />
+										<include name="LICENSE" />
+										<include name="NOTICE" />
+									</fileset>
+								</copy>
+							</target>
 						</configuration>
-					</plugin>
-					<!--plugin>
-						<!- -
-							- Copy LICENSE.txt and NOTICE.txt so that they are included
-							- in the -javadoc jar file for the component.
-						- ->
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>${commons.antrun-plugin.version}</version>
-						<executions>
-							<execution>
-								<id>javadoc.resources</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<target>
-										<copy todir=${project.build.directory}/apidocs/META-INF">
-											<fileset dir=${basedir}">
-												<include name="LICENSE.txt" />
-												<include name="NOTICE.txt" />
-												<include name="LICENSE" />
-												<include name="NOTICE" />
-											</fileset>
-										</copy>
-									</target>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin-->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<version>${commons.compiler.version}</version>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-deploy-plugin</artifactId>
-						<version>${commons.deploy-plugin.version}</version>
+					</execution>
+				</executions>
+			</plugin-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${commons.compiler.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>${commons.deploy-plugin.version}</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${commons.source-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+							<goal>test-jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!--plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>${commons.exec-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>default-jar</id>
+						<phase>compile</phase>
 						<configuration>
-							<skip>true</skip>
+							<!- - Use the system java executable - ->
+							<executable>${env.JV_HOME}/bin/jar</executable>
+							<includes>
+								<include>**/*.class</include>
+								<include>**/META-INF/*</include>
+								<include>**/META-INF/**/*</include>
+							</includes>
+							<excludes>
+								<exclude>**/*Test.class</exclude>
+							</excludes>
+							<arguments>
+								<argument>cf ${project.basedir}/target/${artifactId}-${version}.jar</argument>
+							</arguments>
 						</configuration>
-					</plugin>
-					<plugin>
-						<artifactId>maven-source-plugin</artifactId>
-						<version>${commons.source-plugin.version}</version>
-						<executions>
-							<execution>
-								<id>attach-sources</id>
-								<goals>
-									<goal>jar-no-fork</goal>
-									<goal>test-jar-no-fork</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-						<!--plugin>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>exec-maven-plugin</artifactId>
-							<version>${commons.exec-plugin.version}</version>
-							<executions>
-								<execution>
-									<id>default-jar</id>
-									<phase>compile</phase>
-									<configuration>
-										<!- - Use the system java executable - ->
-										<executable>${env.JV_HOME}/bin/jar</executable>
-										<includes>
-											<include>**/*.class</include>
-											<include>**/META-INF/*</include>
-											<include>**/META-INF/**/*</include>
-										</includes>
-										<excludes>
-											<exclude>**/*Test.class</exclude>
-										</excludes>
-										<arguments>
-											<argument>cf ${project.basedir}/target/${artifactId}-${version}.jar</argument>
-										</arguments>
-									</configuration>
-								</execution>
-								<execution>
-									<id>test-jar</id>
-									<phase>compile</phase>
-									<configuration>
-										<!- - Use the system java executable - ->
-										<executable>${env.JV_HOME}/bin/jar</executable>
-										<includes>
-											<include>**/*Test.class</include>
-											<include>**/META-INF/*</include>
-											<include>**/META-INF/**/*</include>
-										</includes>
-										<arguments>
-											<argument>cf ${project.basedir}/target/${artifactId}-${version}-test.jar</argument>
-										</arguments>
-									</configuration>
-								</execution>
-							</executions>
-						</plugin-->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>${commons.surefire.version}</version>
+					</execution>
+					<execution>
+						<id>test-jar</id>
+						<phase>compile</phase>
 						<configuration>
-							<!--
-								commons.surefire.java is normally empty.
-								It is defined by the java-1.x profiles to change the JVM used by Surefire
-							-->
-							<jvm>${commons.surefire.java}</jvm>
+							<!- - Use the system java executable - ->
+							<executable>${env.JV_HOME}/bin/jar</executable>
+							<includes>
+								<include>**/*Test.class</include>
+								<include>**/META-INF/*</include>
+								<include>**/META-INF/**/*</include>
+							</includes>
+							<arguments>
+								<argument>cf ${project.basedir}/target/${artifactId}-${version}-test.jar</argument>
+							</arguments>
 						</configuration>
-					</plugin>
-					<!-- Other plugins, alpha order by groupId and artifactId -->
-					<plugin>
-						<groupId>org.apache.commons</groupId>
-						<artifactId>commons-build-plugin</artifactId>
-						<version>${commons.build-plugin.version}</version>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.felix</groupId>
-						<artifactId>maven-bundle-plugin</artifactId>
-						<version>${commons.felix.version}</version>
-						<configuration>
-							<!--
-								dummy entry to stop bundle plugin from picking up jar config and reporting
-								WARNING: Duplicate name in Manifest
-								See http://markmail.org/message/mpkl24wk3jrjhhjg
-							-->
-							<archive>
-								<forced>true</forced>
-							</archive>
-							<excludeDependencies>${commons.osgi.excludeDependencies}</excludeDependencies>
-							<manifestLocation>${project.build.directory}/osgi</manifestLocation>
-							<instructions>
-								<!-- Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd -->
-								<_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME,JAVA_1_8_HOME,JAVA_1_9_HOME</_removeheaders>
-								<Bundle-SymbolicName>${commons.osgi.symbolicName}</Bundle-SymbolicName>
-								<Export-Package>${commons.osgi.export}</Export-Package>
-								<Private-Package>${commons.osgi.private}</Private-Package>
-								<Import-Package>${commons.osgi.import}</Import-Package>
-								<DynamicImport-Package>${commons.osgi.dynamicImport}</DynamicImport-Package>
-								<Bundle-DocURL>${project.url}</Bundle-DocURL>
-							</instructions>
-						</configuration>
-						<executions>
-							<execution>
-								<id>bundle-manifest</id>
-								<phase>process-classes</phase>
-								<goals>
-									<goal>manifest</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<!-- Needed for command-line access, e.g mvn apache-rat:rat and mvn apache-rat:check -->
+					</execution>
+				</executions>
+			</plugin-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${commons.surefire.version}</version>
+				<configuration>
+					<!--
+						commons.surefire.java is normally empty.
+						It is defined by the java-1.x profiles to change the JVM used by Surefire
+					-->
+					<jvm>${commons.surefire.java}</jvm>
+				</configuration>
+			</plugin>
+			<!-- Other plugins, alpha order by groupId and artifactId -->
+			<plugin>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-build-plugin</artifactId>
+				<version>${commons.build-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${commons.felix.version}</version>
+				<configuration>
+					<!--
+						dummy entry to stop bundle plugin from picking up jar config and reporting
+						WARNING: Duplicate name in Manifest
+						See http://markmail.org/message/mpkl24wk3jrjhhjg
+					-->
+					<archive>
+						<forced>true</forced>
+					</archive>
+					<excludeDependencies>${commons.osgi.excludeDependencies}</excludeDependencies>
+					<manifestLocation>${project.build.directory}/osgi</manifestLocation>
+					<instructions>
+						<!-- Stop the JAVA_1_n_HOME variables from being treated as headers by Bnd -->
+						<_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME,JAVA_1_8_HOME,JAVA_1_9_HOME</_removeheaders>
+						<Bundle-SymbolicName>${commons.osgi.symbolicName}</Bundle-SymbolicName>
+						<Export-Package>${commons.osgi.export}</Export-Package>
+						<Private-Package>${commons.osgi.private}</Private-Package>
+						<Import-Package>${commons.osgi.import}</Import-Package>
+						<DynamicImport-Package>${commons.osgi.dynamicImport}</DynamicImport-Package>
+						<Bundle-DocURL>${project.url}</Bundle-DocURL>
+					</instructions>
+				</configuration>
+				<executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Needed for command-line access, e.g mvn apache-rat:rat and mvn apache-rat:check -->
 			<plugin>
 				<groupId>org.apache.rat</groupId>
 				<artifactId>apache-rat-plugin</artifactId>
@@ -1239,8 +1481,191 @@
 							</execution>
 						</executions>
 					</plugin>
+					<!--plugin>
+						<groupId>org.teavm</groupId>
+						<artifactId>teavm-maven-plugin</artifactId>
+						<version>${commons.teavm.version}</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>compile</goal>
+								</goals>
+								<configuration>
+									<mainClass>${package.mainClass}</mainClass>
+									<targetDirectory>${project.basedir}/${project.basedir}/src/main/resources/META-INF/js</targetDirectory>
+									<targetFileName>${artifactId}Classes.js</targetFileName>
+									<targetType>JAVASCRIPT</targetType>
+									<optimizationLevel>SIMPLE</optimizationLevel>
+									<minifying>false</minifying>
+									<sourceMapsGenerated>true</sourceMapsGenerated>
+									<sourceFilesCopied>true</sourceFilesCopied>
+									<debugInformationGenerated>true</debugInformationGenerated>
+									<jsModuleType>UMD</jsModuleType>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin-->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>${commons.exec-plugin.version}</version>
+						<extensions>true</extensions>
+					<executions>
+							<execution>
+								<id>make-all-dirs</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+									<executable>/usr/bin/bash</executable>
+									<arguments>
+										<argument>-cx</argument>
+										<argument>if [ ! -d ${project.basedir}/src ]; then mkdir ${project.basedir}/src; else echo "Directory ${project.basedir}/src already exists."; fi; if [ ! -d ${project.basedir}/src/main ]; then mkdir ${project.basedir}/src/main; else echo "Directory ${project.basedir}/src/main already exists."; fi; if [ ! -d ${project.basedir}/src/main/resources ]; then mkdir ${project.basedir}/src/main/resources; else echo "Directory ${project.basedir}/src/main/resources already exists."; fi; if [ ! -d ${project.basedir}/src/main/resources/META-INF ]; then mkdir ${project.basedir}/src/main/resources/META-INF; else echo "Directory ${project.basedir}/src/main/resources/META-INF already exists."; fi; if [ ! -d ${project.basedir}/src/main/resources/META-INF/js ]; then mkdir ${project.basedir}/src/main/resources/META-INF/js; else echo "Directory ${project.basedir}/src/main/resources/META-INF/js already exists."; fi; if [ ! -d ${project.basedir}/src/test ]; then mkdir ${project.basedir}/src/test; else echo "Directory ${project.basedir}/src/test already exists."; fi; if [ ! -d ${project.basedir}/src/test/resources ]; then mkdir ${project.basedir}/src/test/resources; else echo "Directory ${project.basedir}/src/test/resources already exists."; fi; if [ ! -d ${project.basedir}/src/test/resources/META-INF ]; then mkdir ${project.basedir}/src/test/resources/META-INF; else echo "Directory ${project.basedir}/src/test/resources/META-INF already exists."; fi; if [ ! -d ${project.basedir}/src/test/resources/META-INF/js ]; then mkdir ${project.basedir}/src/test/resources/META-INF/js; else echo "Directory ${project.basedir}/src/test/resources/META-INF/js already exists."; fi; if [ ! -d ${project.build.directory} ]; then mkdir ${project.build.directory}; else echo "Directory ${project.build.directory} already exists."; fi; if [ ! -d ${project.build.directory}/exported-libs ]; then mkdir ${project.build.directory}/exported-libs; else echo "Directory ${project.build.directory}/exported-libs already exists."; fi;</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-dependencies-to-exported-libs</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+									<executable>mvn</executable>
+									<arguments>
+										<argument>dependency:copy-dependencies</argument>
+										<argument>-DoutputDirectory=${project.build.directory}/exported-libs</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<!--execution>
+								<id>package-jar</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+									<executable>jar</executable>
+									<arguments>
+										<argument>cfe</argument>
+										<argument>${project.build.directory}/${project.build.finalName}.jar</argument>
+										<argument>-C</argument>
+										<argument>target/classes</argument>
+									</arguments>
+									<archive combine.children="append">
+										<manifestFile>${commons.manifestfile}</manifestFile>
+										<manifestEntries>
+											<Automatic-Module-Name>${commons.module.name}</Automatic-Module-Name>
+											<addClasspath>true</addClasspath>
+											<mainClass>${package.mainClass}</mainClass>
+											<Specification-Title>${project.name}</Specification-Title>
+											<Specification-Version>${project.version}</Specification-Version>
+											<Specification-Vendor>${project.organization.name}</Specification-Vendor>
+											<Implementation-Title>${project.name}</Implementation-Title>
+											<Implementation-Version>${project.version}</Implementation-Version>
+											<Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+											<Implementation-Vendor-Id>org.apache</Implementation-Vendor-Id>
+											<X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+											<X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+										</manifestEntries>
+									</archive>
+								</configuration>
+							</execution>
+							<execution>
+								<id>repackage-test-jar</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>package-test</phase>
+								<configuration>
+									<executable>/usr/bin/bash</executable>
+									<arguments>
+										<argument>-cx</argument>
+										<argument>if [ -f ${project.build.directory}/test-${project.build.finalName}.jar; then jar ufe ${project.build.directory}/test-${project.build.finalName}.jar ${package.mainClass}; fi</argument>
+									</arguments>
+									<skipIfEmpty>true</skipIfEmpty>
+									<archive combine.children="append">
+										<manifestFile>${commons.manifestfile}</manifestFile>
+										<manifestEntries>
+											<Automatic-Module-Name>${commons.module.name}</Automatic-Module-Name>
+											<addClasspath>true</addClasspath>
+											<mainClass>${package.mainClass}</mainClass>
+											<Specification-Title>${project.name}</Specification-Title>
+											<Specification-Version>${project.version}</Specification-Version>
+											<Specification-Vendor>${project.organization.name}</Specification-Vendor>
+											<Implementation-Title>${project.name}</Implementation-Title>
+											<Implementation-Version>${project.version}</Implementation-Version>
+											<Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+											<Implementation-Vendor-Id>org.apache</Implementation-Vendor-Id>
+											<X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+											<X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+										</manifestEntries>
+									</archive>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-project-jars-to-exported-libs</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+									<executable>cp</executable>
+									<arguments>
+										<argument>-v</argument>
+										<argument>target/${artifactId}-${version}.jar</argument>
+										<argument>${project.build.directory}/exported-libs/</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-project-test-jars-to-exported-libs</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>package-test</phase>
+								<configuration>
+									<executable>/usr/bin/bash</executable>
+									<arguments>
+										<argument>-cx</argument>
+										<argument>if [ -f target/test-${project.build.finalName}.jar; then cp -v target/test-${project.build.finalName}.jar ${project.build.directory}/exported-libs/; fi</argument>
+									</arguments>
+								</configuration>
+							</execution-->
+							<!--execution>
+								<id>run-teavm-compile-javascript</id>
+								<phase>package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>/usr/bin/bash</executable>
+									<arguments>
+										<argument>-cx</argument>
+										<argument>cd ${project.build.directory}/exported-libs; java org.teavm.cli.TeaVMRunner &#45;&#45;targetdir ${project.basedir}/${project.basedir}/src/main/resources/META-INF/js &#45;&#45;targetfile ${artifactId}Classes.js &#45;&#45;entry-point main &#45;&#45;debug &#45;&#45;sourcemaps &#45;&#45;js-module-type umd -O 1 &#45;&#45;strict -t js ${package.mainClass}</argument>
+									</arguments>
+								</configuration>
+							</execution-->
+							<!--execution>
+								<id>run-teavm-compile-test-javascript</id>
+								<phase>package-test</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>/usr/bin/bash</executable>
+									<arguments>
+										<argument>-cx</argument>
+										<argument>if [ -f ${project.build.directory}/exported-libs/test-${artifactId}-${version}.jar ]; then cd ${project.build.directory}/exported-libs; java &#45;cp . org.teavm.cli.TeaVMRunner &#45;&#45;targetdir ${project.basedir}/${project.basedir}/src/main/resources/META-INF/js &#45;&#45;targetfile ${artifactId}Classes.js &#45;&#45;entry-point main &#45;&#45;debug &#45;&#45;sourcemaps &#45;&#45;js-module-type umd -O 1 &#45;&#45;strict -t js ${package.testMainClass}; fi</argument>
+									</arguments>
+								</configuration>
+							</execution-->
+						</executions>
+					</plugin>
 		</plugins>
 	</build>
+
 	<reporting>
 		<!-- Plugins defined here in the <reporting> section ignore what's defined in <pluginManagement>
 			in the <build> section above, so we have to define the versions here. -->
@@ -1387,6 +1812,7 @@
 			</plugin>
 		</plugins>
 	</reporting>
+
 	<profiles>
 		<profile>
 			<!--
@@ -1617,7 +2043,7 @@
 							<arguments>-Prelease</arguments>
 						</configuration>
 					</plugin>
-					<plugin>
+					<!--plugin>
 						<artifactId>maven-javadoc-plugin</artifactId>
 						<version>${commons.javadoc.version}</version>
 						<executions>
@@ -1634,7 +2060,7 @@
 							<source>${maven.compiler.source}</source>
 							<javadocExecutable>${commons.compiler.javadoc}</javadocExecutable>
 						</configuration>
-					</plugin>
+					</plugin-->
 					<plugin>
 						<groupId>org.apache.commons</groupId>
 						<artifactId>commons-release-plugin</artifactId>
@@ -1758,7 +2184,7 @@
 			<id>java-21-up</id>
 			<activation>
 				<jdk>[21,)</jdk>
-		</activation>
+			</activation>
 			<properties>
 				<commons.checkstyle.version>14.0.0</commons.checkstyle.version>
 				<argLine>-XX:+EnableDynamicAgentLoading</argLine>
@@ -1797,7 +2223,7 @@
 						</configuration>
 					</plugin>
 					<!-- Hook the benchmarks to the test phase -->
-					<plugin>
+					<!--plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>${commons.exec-plugin.version}</version>
@@ -1824,7 +2250,7 @@
 								</configuration>
 							</execution>
 						</executions>
-					</plugin>
+					</plugin-->
 				</plugins>
 			</build>
 		</profile>

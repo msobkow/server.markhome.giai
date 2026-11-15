@@ -1,0 +1,416 @@
+
+// Description: Java 25 protlic DbIO interface for SubProject.
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.intnet.intnetprot;
+
+import java.lang.reflect.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.ycf.v3_1.secure.securepub.*;
+import server.markhome.ycf.v3_1.intnet.intnetpub.*;
+import server.markhome.ycf.v3_1.intnet.intnetpub.*;
+import server.markhome.ycf.v3_1.secure.securepubobj.*;
+import server.markhome.ycf.v3_1.intnet.intnetpubobj.*;
+import server.markhome.ycf.v3_1.intnet.intnetpubobj.*;
+import server.markhome.ycf.v3_1.intnet.intnetprotobj.*;
+
+/*
+ *	IntNetProtSubProjectTable protlic database interface for SubProject has CodeVis Public, meaning that any user interface or referencing schema can access it.
+ */
+public interface IIntNetProtSubProjectTable
+extends IIntNetPubSubProjectTable
+{
+	public static final String TABLE_NAME = "SubProject";
+
+	/**
+	 *	Create the instance in the database, and update the specified record
+	 *	with the assigned primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be created.
+	 */
+	public IIntNetProtSubProject protcreateSubProject( ISecurePubAuthorization Authorization,
+		IIntNetProtSubProject rec );
+
+	/**
+	 *	Create the instance in the database, and update the specified record
+	 *	with the assigned primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be created.
+	 */
+	public IIntNetProtSubProject protcreateSubProject( ISecurePubAuthorization Authorization,
+		IIntNetPubSubProject rec );
+
+
+	/**
+	 *	Update the instance in the database, and update the specified record
+	 *	with any calculated changes imposed by the associated stored procedure.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be updated
+	 */
+	public IIntNetProtSubProject protupdateSubProject( ISecurePubAuthorization Authorization,
+		IIntNetProtSubProject rec );
+
+	/**
+	 *	Update the instance in the database, and update the specified record
+	 *	with any calculated changes imposed by the associated stored procedure.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be updated
+	 */
+	public IIntNetProtSubProject protupdateSubProject( ISecurePubAuthorization Authorization,
+		IIntNetPubSubProject rec );
+
+
+	/**
+	 *	Delete the instance from the database.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be deleted.
+	 */
+	public void protdeleteSubProject( ISecurePubAuthorization Authorization,
+		IIntNetProtSubProject rec );
+	/**
+	 *	Delete the SubProject instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The primary key identifying the instance to be deleted.
+	 */
+	public void protdeleteSubProjectByIdIdx( ISecurePubAuthorization Authorization,
+		CFDbKeyHash256 argKey );
+	/**
+	 *	Delete the SubProject instances identified by the key TenantIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	TenantId	The SubProject key attribute of the instance generating the id.
+	 */
+	public void protdeleteSubProjectByTenantIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 argTenantId );
+
+	/**
+	 *	Delete the SubProject instances identified by the key TenantIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	public void protdeleteSubProjectByTenantIdx( ISecurePubAuthorization Authorization,
+		IIntNetProtSubProjectByTenantIdxKey argKey );
+	/**
+	 *	Delete the SubProject instances identified by the key TenantIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	public void protdeleteSubProjectByTenantIdx( ISecurePubAuthorization Authorization,
+		IIntNetPubSubProjectByTenantIdxKey argKey );
+	/**
+	 *	Delete the SubProject instances identified by the key TopProjectIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	TopProjectId	The SubProject key attribute of the instance generating the id.
+	 */
+	public void protdeleteSubProjectByTopProjectIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 argTopProjectId );
+
+	/**
+	 *	Delete the SubProject instances identified by the key TopProjectIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	public void protdeleteSubProjectByTopProjectIdx( ISecurePubAuthorization Authorization,
+		IIntNetProtSubProjectByTopProjectIdxKey argKey );
+	/**
+	 *	Delete the SubProject instances identified by the key TopProjectIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	public void protdeleteSubProjectByTopProjectIdx( ISecurePubAuthorization Authorization,
+		IIntNetPubSubProjectByTopProjectIdxKey argKey );
+	/**
+	 *	Delete the SubProject instances identified by the key NameIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	TopProjectId	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@param	Name	The SubProject key attribute of the instance generating the id.
+	 */
+	public void protdeleteSubProjectByNameIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 argTopProjectId,
+		String argName );
+
+	/**
+	 *	Delete the SubProject instances identified by the key NameIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	public void protdeleteSubProjectByNameIdx( ISecurePubAuthorization Authorization,
+		IIntNetProtSubProjectByNameIdxKey argKey );
+	/**
+	 *	Delete the SubProject instances identified by the key NameIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	public void protdeleteSubProjectByNameIdx( ISecurePubAuthorization Authorization,
+		IIntNetPubSubProjectByNameIdxKey argKey );
+
+	/**
+	 *	Delete the instance from the database.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be deleted.
+	 */
+	public void protdeleteSubProject( ISecurePubAuthorization Authorization,
+		IIntNetPubSubProject rec );
+
+
+	/**
+	 *	Read the derived SubProject record instance by protected primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the SubProject instance to be read.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public IIntNetProtSubProject protreadDerived( ISecurePubAuthorization Authorization,
+		CFDbKeyHash256 PKey );
+
+	/**
+	 *	Lock the derived SubProject record instance by protected primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the SubProject instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public IIntNetProtSubProject protlockDerived( ISecurePubAuthorization Authorization,
+		CFDbKeyHash256 PKey );
+
+	/**
+	 *	Read all SubProject instances.
+	 *
+	 *	@param	Authorization	The session authorization information.	
+	 *
+	 *	@return An array of derived record instances, potentially with 0 elements in the set.
+	 */
+	public IIntNetProtSubProject[] protreadProtAllDerived( ISecurePubAuthorization Authorization );
+
+	/**
+	 *	Read the derived SubProject record instance identified by the unique key IdIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	Id	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 */
+	public IIntNetProtSubProject protreadDerivedByIdIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 Id );
+
+	/**
+	 *	Read an array of the derived SubProject record instances identified by the duplicate key TenantIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	TenantId	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived instances for the specified key, potentially with 0 elements in the set.
+	 */
+	public IIntNetProtSubProject[] protreadDerivedByTenantIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 TenantId );
+
+	/**
+	 *	Read an array of the derived SubProject record instances identified by the duplicate key TopProjectIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	TopProjectId	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived instances for the specified key, potentially with 0 elements in the set.
+	 */
+	public IIntNetProtSubProject[] protreadDerivedByTopProjectIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 TopProjectId );
+
+	/**
+	 *	Read the derived SubProject record instance identified by the unique key NameIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	TopProjectId	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@param	Name	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 */
+	public IIntNetProtSubProject protreadDerivedByNameIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 TopProjectId,
+		String Name );
+
+	/**
+	 *	Read the specific SubProject record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the SubProject instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public IIntNetProtSubProject protreadRec( ISecurePubAuthorization Authorization,
+		CFDbKeyHash256 PKey );
+
+	/**
+	 *	Lock the specific SubProject record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the SubProject instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public IIntNetProtSubProject protlockRec( ISecurePubAuthorization Authorization,
+		CFDbKeyHash256 PKey );
+
+	/**
+	 *	Read all the specific SubProject record instances.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return All the specific SubProject instances in the database accessible for the Authorization.
+	 */
+	public IIntNetProtSubProject[] protreadAllRec( ISecurePubAuthorization Authorization );
+
+	/**
+	 *	Read the specific SubProject record instance identified by the unique key IdIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	Id	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public IIntNetProtSubProject protreadRecByIdIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 Id );
+
+	/**
+	 *	Read an array of the specific SubProject record instances identified by the duplicate key TenantIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	TenantId	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived record instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public IIntNetProtSubProject[] protreadRecByTenantIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 TenantId );
+
+	/**
+	 *	Read an array of the specific SubProject record instances identified by the duplicate key TopProjectIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	TopProjectId	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived record instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public IIntNetProtSubProject[] protreadRecByTopProjectIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 TopProjectId );
+
+	/**
+	 *	Read the specific SubProject record instance identified by the unique key NameIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	TopProjectId	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@param	Name	The SubProject key attribute of the instance generating the id.
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public IIntNetProtSubProject protreadRecByNameIdx( ISecurePubAuthorization Authorization,
+		ICFKeyHash256 TopProjectId,
+		String Name );
+}

@@ -1,0 +1,24 @@
+server.markhome.giai/giai-core Guided Intelligence Architecture Implementation GiAI v1.1 Core Services and Implementation
+
+Copyright 2026-2027 Mark Stephen Sobkow (email:mark.sobkow@gmail.com)
+
+Licensed under the GNU LGPL 3.0 License with classpath exception, or under a commercial license
+from Mark Stephen Sobkow by contacting him at the copyright email address if you need to make
+proprietary or internal but available for public use and/or download/delivery on media application
+code-specific changes to this code base, either of which is refered to as the "License";
+you may not use this file except in compliance with the GNU LGPL 3.0 or a negotiated, custom
+version of one found at <A HRef="https://msobkow.github.io/mark-sobkow-licenses>https://msobkow.github.io/mark-sobkow-licenses/</A>
+that has been paid for and delivered to your organization or business. Licenses applicable to
+your application's situation may be obtained at the following URLs if they were not provided with this
+source module:
+
+    https://gnu.org/licenses/
+    https://msobkow.github.io/mark-sobkow-licenses/
+
+Unless required by applicable law or agreed to in writing, software distributed under the License
+is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied.  See the applicable License for your situation for the specific language governing
+permissions and limitations under the relevant License terms.
+
+SPDX-License-Identifier: LGPL-3.0-or-later
+SPDX-License-Identifier: LicenseRef-GiAIDualLGPLCommercial-3.0-or-later

@@ -1,12 +1,16 @@
-server.markhome.ycf Yorkton Code Fractal Core Services
+server.markhome.giai/giai-core Guided Intelligence Architecture Implementation GiAI v1.1 Core Services and Implementation
 
-Copyright 2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+Copyright 2026-2027 Mark Stephen Sobkow (email:mark.sobkow@gmail.com)
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+Licensed under the GNU LGPL 3.0 License with classpath exception, or under a commercial license
+from Mark Stephen Sobkow by contacting him at the copyright email address if you need to make
+proprietary or internal but available for public use and/or download/delivery on media application
+code-specific changes to this code base, either of which is refered to as the "License";
+you may not use this file except in compliance with the License applicable to your application's
+situation.  You may obtain copies of the Licenses at the following URLs:
 
-    http://apache.org
+    https://gnu.org/licenses/
+    https://msobkow.github.io/mark-sobkow-licenses/
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,4 +18,5 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-SPDX-License-Identifier: Apache-2.0
+SPDX-License-Identifier: LGPL-3.0-or-later
+SPDX-License-Identifier: LicenseRef-GiAIDualLGPLCommercial-3.0-or-later

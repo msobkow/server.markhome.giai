@@ -1,0 +1,364 @@
+// Description: Java 25 JPA implementation of a TimestampType entity definition object.
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.intnet.intnet.jpa;
+
+import java.io.Serializable;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;
+import server.markhome.ycf.v3_1.secure.secure.*;
+import server.markhome.ycf.v3_1.intnet.intnet.*;
+import server.markhome.ycf.v3_1.intnet.intnet.*;
+import server.markhome.ycf.v3_1.secure.secure.jpa.*;
+import server.markhome.ycf.v3_1.intnet.intnet.jpa.*;
+
+@Entity
+@Table(
+	name = "tstyp", schema = "IntNet31",
+	indexes = {
+		@Index(name = "TimestampTypeIdIdx", columnList = "Id", unique = true),
+		@Index(name = "TimestampTypeSchemaDefIdx", columnList = "SchemaDefId", unique = false),
+		@Index(name = "TimestampTypeSchemaDefIdxSchemaDef", columnList = "SchemaDefIdSchemaDef", unique = false)
+	}
+)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorValue("43106")
+@Transactional(Transactional.TxType.REQUIRED)
+@PersistenceContext(unitName = "IntNetPU")
+public class BusModelJpaTimestampType extends BusModelJpaTimestampDef
+	implements IBusModelTimestampType
+{
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn( name="SchemaDefIdSchemaDef", referencedColumnName="Id" )
+	protected BusModelJpaSchemaDef requiredContainerSchemaDef;
+
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="SchemaDefId", nullable=false, length=CFDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected ICFKeyHash256 requiredSchemaDefId;
+
+	public BusModelJpaTimestampType() {
+		super();
+		requiredSchemaDefId = CFDbKeyHash256.fromHex( IBusModelPubTimestampType.SCHEMADEFID_INIT_VALUE.toString() );
+	}
+
+	@Override
+	public int getClassCode() {
+		return( IBusModelTimestampType.CLASS_CODE );
+	}
+
+	@Override
+	public IBusModelSchemaDef getRequiredContainerSchemaDef() {
+		return(requiredContainerSchemaDef);
+	}
+
+	@Override
+	public void setRequiredContainerSchemaDef(IBusModelSchemaDef argObj) {
+		if(argObj == null) {
+			throw new CFNullArgumentException(getClass(), "setContainerSchemaDef", 1, "argObj");
+		}
+		else if (argObj instanceof BusModelJpaSchemaDef) {
+			requiredContainerSchemaDef = (BusModelJpaSchemaDef)argObj;
+			if (requiredContainerSchemaDef != null) {
+				requiredSchemaDefId = requiredContainerSchemaDef.getRequiredId();
+			}
+			else {
+			}
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "setContainerSchemaDef", "argObj", argObj, "BusModelJpaSchemaDef");
+		}
+	}
+
+	@Override
+	public void setRequiredContainerSchemaDef(IBusModelProtSchemaDef argObj) {
+		setRequiredContainerSchemaDef(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredContainerSchemaDef(IBusModelPubSchemaDef argObj) {
+		setRequiredContainerSchemaDef(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredContainerSchemaDef(ICFKeyHash256 argSchemaDefId) {
+		IBusModelSchema targetBackingSchema = IBusModelSchema.getBackingBusModel();
+		if (targetBackingSchema == null) {
+			throw new CFNullArgumentException(getClass(), "setRequiredContainerSchemaDef", 0, "IBusModelSchema.getBackingBusModel()");
+		}
+		IBusModelSchemaDefTable targetTable = targetBackingSchema.getTableSchemaDef();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "setRequiredContainerSchemaDef", 0, "IBusModelSchema.getBackingBusModel().getTableSchemaDef()");
+		}
+		IBusModelSchemaDef targetRec = targetTable.readDerived(ISecureSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSchemaDefId);
+		setRequiredContainerSchemaDef(targetRec);
+	}
+
+	@Override
+	public ICFKeyHash256 getRequiredSchemaDefId() {
+		return(requiredSchemaDefId);
+	}
+
+	public void setRequiredSchemaDefId( ICFKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFNullArgumentException( getClass(),
+				"setRequiredSchemaDefId",
+				1,
+				"value" );
+		}
+		requiredSchemaDefId = value;
+	}
+
+	@Override
+	public boolean equals( Object obj ) {
+		if (obj == null) {
+			return( false );
+		}
+		else if (obj instanceof IBusModelTimestampType) {
+			if (!super.equals(obj)) {
+				return( false );
+			}
+			IBusModelTimestampType rhs = (IBusModelTimestampType)obj;
+			if( getRequiredSchemaDefId() != null ) {
+				if( rhs.getRequiredSchemaDefId() != null ) {
+					if( ! getRequiredSchemaDefId().equals( rhs.getRequiredSchemaDefId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSchemaDefId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else if (obj instanceof IBusModelTimestampTypeH) {
+			if (!super.equals(obj)) {
+				return( false );
+			}
+			IBusModelTimestampTypeH rhs = (IBusModelTimestampTypeH)obj;
+			if( getRequiredSchemaDefId() != null ) {
+				if( rhs.getRequiredSchemaDefId() != null ) {
+					if( ! getRequiredSchemaDefId().equals( rhs.getRequiredSchemaDefId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSchemaDefId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else if (obj instanceof IBusModelValueHPKey) {
+			return( super.equals(obj) );
+		}
+		else if (obj instanceof IBusModelTimestampTypeBySchemaIdxKey) {
+			IBusModelTimestampTypeBySchemaIdxKey rhs = (IBusModelTimestampTypeBySchemaIdxKey)obj;
+			if( getRequiredSchemaDefId() != null ) {
+				if( rhs.getRequiredSchemaDefId() != null ) {
+					if( ! getRequiredSchemaDefId().equals( rhs.getRequiredSchemaDefId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSchemaDefId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else {
+			return( super.equals(obj) );
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		int hashCode = super.hashCode();
+		hashCode = hashCode + getRequiredSchemaDefId().hashCode();
+		return( hashCode & 0x7fffffff );
+	}
+
+	@Override
+	public int compareTo( Object obj ) {
+		int cmp;
+		if (obj == null) {
+			return( 1 );
+		}
+		else if (obj instanceof IBusModelTimestampType) {
+			cmp = super.compareTo(obj);
+			if (cmp != 0) {
+				return( cmp );
+			}
+			IBusModelTimestampType rhs = (IBusModelTimestampType)obj;
+			if (getRequiredSchemaDefId() != null) {
+				if (rhs.getRequiredSchemaDefId() != null) {
+					cmp = getRequiredSchemaDefId().compareTo( rhs.getRequiredSchemaDefId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSchemaDefId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
+		else if( obj instanceof IBusModelTimestampTypeH ) {
+			cmp = super.compareTo(obj);
+			if (cmp != 0) {
+				return( cmp );
+			}
+			IBusModelTimestampTypeH rhs = (IBusModelTimestampTypeH)obj;
+			if (getRequiredSchemaDefId() != null) {
+				if (rhs.getRequiredSchemaDefId() != null) {
+					cmp = getRequiredSchemaDefId().compareTo( rhs.getRequiredSchemaDefId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSchemaDefId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
+		else if (obj instanceof IBusModelTimestampTypeBySchemaIdxKey) {
+			IBusModelTimestampTypeBySchemaIdxKey rhs = (IBusModelTimestampTypeBySchemaIdxKey)obj;
+			if (getRequiredSchemaDefId() != null) {
+				if (rhs.getRequiredSchemaDefId() != null) {
+					cmp = getRequiredSchemaDefId().compareTo( rhs.getRequiredSchemaDefId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSchemaDefId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
+		else {
+			cmp = super.compareTo(obj);
+			return( cmp );
+		}
+	}
+
+	@Override
+	public void set( IBusModelValue src ) {
+		if( src instanceof IBusModelTimestampType ) {
+			setTimestampType( (IBusModelTimestampType)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"src",
+				src,
+				"BusModelJpaTimestampType" );
+		}
+	}
+
+	@Override
+	public void setTimestampType( IBusModelTimestampType src ) {
+		super.setTimestampDef( src );
+		setRequiredContainerSchemaDef(src.getRequiredContainerSchemaDef());
+		setRequiredSchemaDefId(src.getRequiredSchemaDefId());
+	}
+
+	@Override
+	public void set( IBusModelValueH src ) {
+		if( src instanceof IBusModelTimestampTypeH ) {
+			setTimestampType( (IBusModelTimestampTypeH)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+					"set",
+					"src",
+					src,
+					"IBusModelTimestampTypeH" );
+		}
+	}
+
+	@Override
+	public void setTimestampType( IBusModelTimestampTypeH src ) {
+		super.setTimestampDef( src );
+		setRequiredContainerSchemaDef(src.getRequiredSchemaDefId());
+		setRequiredSchemaDefId(src.getRequiredSchemaDefId());
+	}
+
+	@Override
+	public String getXmlAttrFragment() {
+		String ret = super.getXmlAttrFragment() 
+			+ " RequiredId=" + "\"" + getRequiredId().toString() + "\""
+			+ " RequiredSchemaDefId=" + "\"" + getRequiredSchemaDefId().toString() + "\"";
+		return( ret );
+	}
+
+	@Override
+	public String toString() {
+		String ret = "<BusModelJpaTimestampType" + getXmlAttrFragment() + "/>";
+		return( ret );
+	}
+}

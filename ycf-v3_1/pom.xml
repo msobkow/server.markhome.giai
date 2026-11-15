@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>server.markhome.ycf.v3_1</groupId>
-	<artifactId>server.markhome.ycf.v3_1</artifactId>
-	<version>3.1.42-20260930</version>
-	<name>server.markhome.ycf.v3_1</name>
-	<description>Yorkton Code Fractal 3.1.42</description>
-	<packaging>pom</packaging>
-
 	<parent>
-		<groupId>server.markhome</groupId>
-		<artifactId>server.markhome.ycf</artifactId>
-		<version>20260930</version>
+		<groupId>giai</groupId>
+		<artifactId>giai-ycf</artifactId>
+		<version>1.1.42-alpha17-202611142100</version>
 	</parent>
+	<groupId>giai-ycf</groupId>
+	<artifactId>giai-ycf-v3_1</artifactId>
+	<name>giai-ycf-v3_1</name>
+	<description>GiAI v1.1 YCF v3.1.42</description>
+	<packaging>jar</packaging>
+
+	<modules>
+		<module>giai-ycf-v3_1-secure</module>
+		<module>giai-ycf-v3_1-intnet</module>
+		<module>giai-ycf-v3_1-busmodel</module>
+	</modules>
 
 	<distributionManagement>
 		<repository>
@@ -28,15 +32,35 @@
 	</distributionManagement>
 
 	<properties>
-		<rat.skip>true</rat.skip>
-		<url>https://github.com/msobkow/server.markhome.ycf/</url>
-		<project.url>https://github.com/msobkow/server.markhome.ycf/v3_1/</project.url>
-		<project.scm.url>https://github.com/msobkow/server.markhome.ycf.v3_1/</project.scm.url>
-		<project.build.outputTimestamp>2026-09-30T00:00:00Z</project.build.outputTimestamp>
-		<package.mainClass>server.markhome.ycf.YCFV3_1LibEntry</package.mainClass>
-		<package.testMainClass>server.markhome.ycf.v3_1.testYCFLibEntry</package.testMainClass>
-		<ycf.version>3.1.42-20260930</ycf.version>
-		<commons.rc.version>YCFRC1</commons.rc.version>
+		<url>https://github.com/msobkow/server.markhome.giai/giai-ycf/v3_1/busmodel/appsetup/</url>
+		<project.url>https://msobkow.github.io/giai-ycf/v3_1/busmodel/appsetup/</project.url>
+		<project.scm.url>https://github.com/msobkow/server.markhome.giai.git</project.scm.url>
+		<project.build.outputTimestamp>202611142100</project.build.outputTimestamp>
+		<package.mainClass>server.markhome.giai.ycf.v3_1.busmodel.appsetup.GiAILibEntry</package.mainClass>
+		<package.testMainClass>server.markhome.giai.ycf.v3_1.busmodel.appsetup.testGiAILibEntry</package.testMainClass>
+		<giai.version>1.1.42-alpha17-202611142100</giai.version>
+		<commons.rc.version>alpha17</commons.rc.version>
+		<giai.rc.version>alpha17</giai.rc.version>
+		<ycf.giai.version>1.1.42-alpha17-202611142100</ycf.giai.version>
+		<ycf.giai.rc.version>alpha17</ycf.giai.rc.version>
+		<v3_1.ycf.giai.version>3.1.42-alpha17-202611142100</v3_1.ycf.giai.version>
+		<v3_1.ycf.giai.rc.version>alpha17</v3_1.ycf.giai.rc.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>25</maven.compiler.source>
+		<maven.compiler.target>25</maven.compiler.target>
+		<xerces.version>2.12.2</xerces.version>
+		<junit-jupiter.version>6.0.1</junit-jupiter.version>
+		<logback.version>1.5.22</logback.version>
+		<commons-codec.version>1.21.0</commons-codec.version>
+		<commons-text.version>1.15.0</commons-text.version>
+		<jaxb-api.version>2.4.0-b180725.0427</jaxb-api.version>
+		<jakarta-annotation-api.version>3.0.0</jakarta-annotation-api.version>
+		<jakarta-persistence-api.version>3.2.0</jakarta-persistence-api.version>
+		<spring.version>4.0.5</spring.version>
+		<cf.version>3.1.42-alpha17-202611142100</cf.version>
+		<orm.version>7.0.2</orm.version>
+		<postgresql.version>42.7.12</postgresql.version>
+		<javafx.version>21.0.9</javafx.version>
 		<changes.announcementDirectory>.</changes.announcementDirectory>
 		<changes.announcementFile>RELEASE-NOTES.txt</changes.announcementFile>
 		<commons.animal-sniffer.signature.version>1.0</commons.animal-sniffer.signature.version>
@@ -70,7 +94,7 @@
 		<commons.conf.dir>src/conf</commons.conf.dir>
 		<commons.cyclonedx.version>2.9.2</commons.cyclonedx.version>
 		<commons.deployment.protocol>scp</commons.deployment.protocol>
-		<commons.deploy-plugin.version>3.1.42-alpha17-202611140000</commons.deploy-plugin.version>
+		<commons.deploy-plugin.version>3.1.42-alpha17-202611142100</commons.deploy-plugin.version>
 		<commons.docEncoding>${commons.encoding}</commons.docEncoding>
 		<commons.encoding>UTF-8</commons.encoding>
 		<commons.exec-plugin.version>3.6.3</commons.exec-plugin.version>
@@ -186,6 +210,11 @@
 		<license>
 			<name>Apache-2.0-or-later</name>
 			<url>https://apache.org/</url>
+			<distribution>repo</distribution>
+		</license>
+		<license>
+			<name>GPL-3.0-or-later</name>
+			<url>https://gnu.org/licenses/</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
