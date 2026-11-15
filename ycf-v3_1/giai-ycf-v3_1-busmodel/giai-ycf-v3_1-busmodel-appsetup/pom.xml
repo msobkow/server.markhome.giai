@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>giai-ycf</groupId>
 		<artifactId>giai-ycf-v3_1</artifactId>
-		<version>3.1.42-alpha17-202611142100</version>
+		<version>3.1.42-alpha17-202611150800</version>
 	</parent>
 	<groupId>giai-ycf-v3_1-busmodel</groupId>
 	<name>giai-ycf-v3_1-busmodel-appsetup</name>
@@ -31,19 +31,19 @@
 		<url>https://github.com/msobkow/server.markhome.giai/giai-ycf/v3_1/busmodel/appsetup/</url>
 		<project.url>https://msobkow.github.io/giai-ycf/v3_1/busmodel/appsetup/</project.url>
 		<project.scm.url>https://github.com/msobkow/server.markhome.giai.git</project.scm.url>
-		<project.build.outputTimestamp>202611142100</project.build.outputTimestamp>
+		<project.build.outputTimestamp>202611150800</project.build.outputTimestamp>
 		<package.mainClass>server.markhome.giai.ycf.v3_1.busmodel.appsetup.GiAILibEntry</package.mainClass>
 		<package.testMainClass>server.markhome.giai.ycf.v3_1.busmodel.appsetup.testGiAILibEntry</package.testMainClass>
-		<giai.version>1.1.42-alpha17-202611142100</giai.version>
+		<giai.version>1.1.42-alpha17-202611150800</giai.version>
 		<commons.rc.version>alpha17</commons.rc.version>
 		<giai.rc.version>alpha17</giai.rc.version>
-		<ycf.giai.version>1.1.42-alpha17-202611142100</ycf.giai.version>
+		<ycf.giai.version>1.1.42-alpha17-202611150800</ycf.giai.version>
 		<ycf.giai.rc.version>alpha17</ycf.giai.rc.version>
-		<v3_1.ycf.giai.version>3.1.42-alpha17-202611142100</v3_1.ycf.giai.version>
+		<v3_1.ycf.giai.version>3.1.42-alpha17-202611150800</v3_1.ycf.giai.version>
 		<v3_1.ycf.giai.rc.version>alpha17</v3_1.ycf.giai.rc.version>
-		<busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611142100</busmodel.v3_1.ycf.giai.version>
+		<busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611150800</busmodel.v3_1.ycf.giai.version>
 		<busmodel.v3_1.ycf.giai.rc.version>alpha17</busmodel.v3_1.ycf.giai.rc.version>
-		<appsetup.busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611142100</appsetup.busmodel.v3_1.ycf.giai.version>
+		<appsetup.busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611150800</appsetup.busmodel.v3_1.ycf.giai.version>
 		<appsetup.busmodel.v3_1.ycf.giai.rc.version>alpha17</appsetup.busmodel.v3_1.ycf.giai.rc.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>25</maven.compiler.source>
@@ -57,7 +57,7 @@
 		<jakarta-annotation-api.version>3.0.0</jakarta-annotation-api.version>
 		<jakarta-persistence-api.version>3.2.0</jakarta-persistence-api.version>
 		<spring.version>4.0.5</spring.version>
-		<cf.version>3.1.42-alpha17-202611142100</cf.version>
+		<cf.version>3.1.42-alpha17-202611150800</cf.version>
 		<orm.version>7.0.2</orm.version>
 		<postgresql.version>42.7.12</postgresql.version>
 		<javafx.version>21.0.9</javafx.version>
@@ -94,7 +94,7 @@
 		<commons.conf.dir>src/conf</commons.conf.dir>
 		<commons.cyclonedx.version>2.9.2</commons.cyclonedx.version>
 		<commons.deployment.protocol>scp</commons.deployment.protocol>
-		<commons.deploy-plugin.version>3.1.42-alpha17-202611142100</commons.deploy-plugin.version>
+		<commons.deploy-plugin.version>3.1.42-alpha17-202611150800</commons.deploy-plugin.version>
 		<commons.docEncoding>${commons.encoding}</commons.docEncoding>
 		<commons.encoding>UTF-8</commons.encoding>
 		<commons.exec-plugin.version>3.6.3</commons.exec-plugin.version>
@@ -221,10 +221,10 @@
 	<parent>
 		<groupId>server.markhome.giai.ycf.v3_1</groupId>
 		<artifactId>server.markhome.giai.ycf.v3_1.busmodel</artifactId>
-		<version>3.1.42-alpha17-202611142100</version>
+		<version>3.1.42-alpha17-202611150800</version>
 	</parent>
 	<artifactId>giai-ycf-v3_1-busmodel-appsetup</artifactId>
-	<version>3.1.42-alpha17-202611142100</version>
+	<version>3.1.42-alpha17-202611150800</version>
 	<groupId>server.markhome.giai.ycf.v3_1.busmodel</groupId>
 	<name>giai-ycf-v3_1-busmodel-appsetup</name>
 	<description>GiAI v1.1 Yorkton Code Fractal v3.1.42 Business Model (busmodel) Application Setup</description>
@@ -251,19 +251,19 @@
 		<url>https://github.com/msobkow/server.markhome.giai/giai-ycf/busmodel/appsetup/</url>
 		<project.url>https://msobkow.github.io/giai-ycf/busmodel/appsetup/</project.url>
 		<project.scm.url>https://github.com/msobkow/server.markhome.giai.git</project.scm.url>
-		<project.build.outputTimestamp>202611142100</project.build.outputTimestamp>
+		<project.build.outputTimestamp>202611150800</project.build.outputTimestamp>
 		<package.mainClass>server.markhome.giai.ycf.busmodel.appsetup.GiAILibEntry</package.mainClass>
 		<package.testMainClass>server.markhome.giai.ycf.busmodel.appsetup.testGiAILibEntry</package.testMainClass>
-		<giai.version>1.1.42-alpha17-202611142100</giai.version>
+		<giai.version>1.1.42-alpha17-202611150800</giai.version>
 		<commons.rc.version>alpha17</commons.rc.version>
 		<giai.rc.version>alpha17</giai.rc.version>
-		<ycf.giai.version>1.1.42-alpha17-202611142100</ycf.giai.version>
+		<ycf.giai.version>1.1.42-alpha17-202611150800</ycf.giai.version>
 		<ycf.giai.rc.version>alpha17</ycf.giai.rc.version>
-		<v3_1.ycf.giai.version>3.1.42-alpha17-202611142100</v3_1.ycf.giai.version>
+		<v3_1.ycf.giai.version>3.1.42-alpha17-202611150800</v3_1.ycf.giai.version>
 		<v3_1.ycf.giai.rc.version>alpha17</v3_1.ycf.giai.rc.version>
-		<busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611142100</busmodel.v3_1.ycf.giai.version>
+		<busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611150800</busmodel.v3_1.ycf.giai.version>
 		<busmodel.v3_1.ycf.giai.rc.version>alpha17</busmodel.v3_1.ycf.giai.rc.version>
-		<appsetup.busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611142100</appsetup.busmodel.v3_1.ycf.giai.version>
+		<appsetup.busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611150800</appsetup.busmodel.v3_1.ycf.giai.version>
 		<appsetup.busmodel.v3_1.ycf.giai.rc.version>alpha17</appsetup.busmodel.v3_1.ycf.giai.rc.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>25</maven.compiler.source>
@@ -277,7 +277,7 @@
 		<jakarta-annotation-api.version>3.0.0</jakarta-annotation-api.version>
 		<jakarta-persistence-api.version>3.2.0</jakarta-persistence-api.version>
 		<spring.version>4.0.5</spring.version>
-		<cf.version>3.1.42-alpha17-202611142100</cf.version>
+		<cf.version>3.1.42-alpha17-202611150800</cf.version>
 		<orm.version>7.0.2</orm.version>
 		<postgresql.version>42.7.12</postgresql.version>
 		<javafx.version>21.0.9</javafx.version>
@@ -287,17 +287,17 @@
 	<dependency>
 	  <groupId>server.markhome.cf.v3_1</groupId>
 	  <artifactId>server.markhome.cf</artifactId>
-	  <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+	  <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
 	</dependency>
 	<dependency>
 	  <groupId>server.markhome.cf.v3_1</groupId>
 	  <artifactId>server.markhome.cf.dbutil</artifactId>
-	  <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+	  <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
 	</dependency>
 	<dependency>
 	  <groupId>server.markhome.cf.v3_1</groupId>
 	  <artifactId>server.markhome.cf.javafx</artifactId>
-	  <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+	  <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
 	</dependency>
 	<dependency>
 		<groupId>ch.qos.logback</groupId>
@@ -361,42 +361,42 @@
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.securepub</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.intnet.intnetpub</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.busmodel.busmodelpub</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.secureprot</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.intnet.intnetprot</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.busmodel.busmodelprot</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.secure</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.intnet.intnet</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
   </dependencies>
 
@@ -425,7 +425,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.1.42-alpha17-202611142100</version>
+				<version>3.1.42-alpha17-202611150800</version>
 				<configuration>
 					<skip>true</skip>
 				</configuration>

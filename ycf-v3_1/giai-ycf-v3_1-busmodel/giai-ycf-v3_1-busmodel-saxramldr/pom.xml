@@ -4,12 +4,12 @@
   <parent>
     <groupId>server.markhome.ycf</groupId>
     <artifactId>server.markhome.ycf.v3_1</artifactId>
-    <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+    <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
   </parent>
 
   <groupId>server.markhome.ycf.v3_1</groupId>
   <artifactId>server.markhome.ycf.v3_1.busmodel.busmodelsaxramldr</artifactId>
-  <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+  <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
   <name>server.markhome.ycf.v3_1.busmodel.busmodelsaxramldr</name>
   <description>ycf 3.1.42-202611010900-2.13.42-alpha15-202611010900 BusModel BusModelSaxLoader - XML SAX Loadeer using the RAM memory storage for testing</description>
   <url>mailto:mark.sobkow@gmail.com</url>
@@ -27,19 +27,19 @@
 	<jakarta-annotation-api.version>3.0.0</jakarta-annotation-api.version>
 	<jakarta-persistence-api.version>3.2.0</jakarta-persistence-api.version>
 	<spring.version>4.0.5</spring.version>
-    <cf.version>3.1.42-alpha17-202611142100</cf.version>
+    <cf.version>3.1.42-alpha17-202611150800</cf.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>server.markhome.cf.v3_1</groupId>
       <artifactId>server.markhome.cf</artifactId>
-      <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+      <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
       <groupId>server.markhome.cf.v3_1</groupId>
       <artifactId>server.markhome.cf.dbutil</artifactId>
-      <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+      <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>ch.qos.logback</groupId>
@@ -81,32 +81,32 @@
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.secure</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.intnet.intnet</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.busmodel.busmodel</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.securesaxloader</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.intnet.intnetsaxloader</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.busmodel.busmodelsaxloader</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611142100</version>
+        <version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
     </dependency>
   </dependencies>
 
@@ -135,7 +135,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.1.42-alpha17-202611142100</version>
+				<version>3.1.42-alpha17-202611150800</version>
 				<configuration>
 					<skip>true</skip>
 				</configuration>
