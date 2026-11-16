@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>giai-ycf</groupId>
 		<artifactId>giai-ycf-v3_1</artifactId>
-		<version>3.1.42-alpha17-202611150800</version>
+		<version>3.1.42-alpha17-202611160420</version>
 	</parent>
 	<groupId>giai-ycf-v3_1</groupId>
 	<artifactId>giai-ycf-v3_1-busmodel</artifactId>
@@ -44,17 +44,17 @@
 		<url>https://github.com/msobkow/server.markhome.giai/giai-ycf/v3_1/busmodel/</url>
 		<project.url>https://msobkow.github.io/giai-ycf/v3_1/busmodel/</project.url>
 		<project.scm.url>https://github.com/msobkow/server.markhome.giai.git</project.scm.url>
-		<project.build.outputTimestamp>202611150800</project.build.outputTimestamp>
+		<project.build.outputTimestamp>202611160420</project.build.outputTimestamp>
 		<package.mainClass>server.markhome.giai.ycf.v3_1.busmodel.GiAILibEntry</package.mainClass>
 		<package.testMainClass>server.markhome.giai.ycf.v3_1.busmodel.testGiAILibEntry</package.testMainClass>
-		<giai.version>1.1.42-alpha17-202611150800</giai.version>
+		<giai.version>1.1.42-alpha17-202611160420</giai.version>
 		<commons.rc.version>alpha17</commons.rc.version>
 		<giai.rc.version>alpha17</giai.rc.version>
-		<ycf.giai.version>1.1.42-alpha17-202611150800</ycf.giai.version>
+		<ycf.giai.version>1.1.42-alpha17-202611160420</ycf.giai.version>
 		<ycf.giai.rc.version>alpha17</ycf.giai.rc.version>
-		<v3_1.ycf.giai.version>3.1.42-alpha17-202611150800</v3_1.ycf.giai.version>
+		<v3_1.ycf.giai.version>3.1.42-alpha17-202611160420</v3_1.ycf.giai.version>
 		<v3_1.ycf.giai.rc.version>alpha17</v3_1.ycf.giai.rc.version>
-		<busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611150800</busmodel.v3_1.ycf.giai.version>
+		<busmodel.v3_1.ycf.giai.version>3.1.42-alpha17-202611160420</busmodel.v3_1.ycf.giai.version>
 		<busmodel.v3_1.ycf.giai.rc.version>alpha17</busmodel.v3_1.ycf.giai.rc.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>25</maven.compiler.source>
@@ -68,7 +68,7 @@
 		<jakarta-annotation-api.version>3.0.0</jakarta-annotation-api.version>
 		<jakarta-persistence-api.version>3.2.0</jakarta-persistence-api.version>
 		<spring.version>4.0.5</spring.version>
-		<cf.version>3.1.42-alpha17-202611150800</cf.version>
+		<cf.version>3.1.42-alpha17-202611160420</cf.version>
 		<orm.version>7.0.2</orm.version>
 		<postgresql.version>42.7.12</postgresql.version>
 		<javafx.version>21.0.9</javafx.version>
@@ -105,7 +105,7 @@
 		<commons.conf.dir>src/conf</commons.conf.dir>
 		<commons.cyclonedx.version>2.9.2</commons.cyclonedx.version>
 		<commons.deployment.protocol>scp</commons.deployment.protocol>
-		<commons.deploy-plugin.version>3.1.42-alpha17-202611150800</commons.deploy-plugin.version>
+		<commons.deploy-plugin.version>3.1.42-alpha17-202611160420</commons.deploy-plugin.version>
 		<commons.docEncoding>${commons.encoding}</commons.docEncoding>
 		<commons.encoding>UTF-8</commons.encoding>
 		<commons.exec-plugin.version>3.6.3</commons.exec-plugin.version>
@@ -229,42 +229,42 @@
 		<dependency>
 			<groupId>server.markhome.giai</groupId>
 			<artifactId>giai-core</artifactId>
-			<version>1.1.42-alpha17-202611150800</version>
+			<version>1.1.42-alpha17-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>server.markhome.giai</groupId>
 			<artifactId>giai-db</artifactId>
-			<version>1.1.42-alpha17-202611150800</version>
+			<version>1.1.42-alpha17-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>giai-ycf-v3_1</groupId>
 			<artifactId>giai-ycf-v3_1-secure</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>giai-ycf-v3_1-secure</groupId>
 			<artifactId>giai-ycf-v3_1-secure-pub</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>giai-ycf-v3_1-secure</groupId>
 			<artifactId>giai-ycf-v3_1-secure-prot</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>giai-ycf-v3_1</groupId>
 			<artifactId>giai-ycf-v3_1-intnet</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>giai-ycf-v3_1-intnet</groupId>
 			<artifactId>giai-ycf-v3_1-intnet-pub</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>giai-ycf-v3_1-intnet</groupId>
 			<artifactId>giai-ycf-v3_1-intnet-prot</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -328,42 +328,42 @@
 		<dependency>
 			<groupId>server.markhome.ycf.v3_1</groupId>
 			<artifactId>server.markhome.ycf.v3_1.secure.securepub</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>server.markhome.ycf.v3_1</groupId>
 			<artifactId>server.markhome.ycf.v3_1.intnet.intnetpub</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>server.markhome.ycf.v3_1</groupId>
 			<artifactId>server.markhome.ycf.v3_1.busmodel.busmodelpub</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>server.markhome.ycf.v3_1</groupId>
 			<artifactId>server.markhome.ycf.v3_1.secure.secureprot</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>server.markhome.ycf.v3_1</groupId>
 			<artifactId>server.markhome.ycf.v3_1.intnet.intnetprot</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>server.markhome.ycf.v3_1</groupId>
 			<artifactId>server.markhome.ycf.v3_1.busmodel.busmodelprot</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>server.markhome.ycf.v3_1</groupId>
 			<artifactId>server.markhome.ycf.v3_1.secure.secure</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 		<dependency>
 			<groupId>server.markhome.ycf.v3_1</groupId>
 			<artifactId>server.markhome.ycf.v3_1.intnet.intnet</artifactId>
-			<version>3.1.42-202611010900-2.13.42-alpha15-202611150800</version>
+			<version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
 		</dependency>
 	</dependencies>
 
@@ -379,7 +379,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.1.42-alpha17-202611150800</version>
+				<version>3.1.42-alpha17-202611160420</version>
 				<configuration>
 					<skip>true</skip>
 				</configuration>

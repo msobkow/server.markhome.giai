@@ -4,12 +4,12 @@
   <parent>
     <groupId>giai-ycf</groupId>
     <artifactId>giai-ycf-v2_13</artifactId>
-    <version>2.13.42-alpha17-202611150800</version>
+    <version>2.13.42-alpha17-202611160420</version>
   </parent>
 
   <groupId>giai-ycf-v2_13</groupId>
   <artifactId>giai-ycf-v2_13-ycfcore</artifactId>
-  <version>2.13.42-alpha17-202611150800</version>
+  <version>2.13.42-alpha17-202611160420</version>
   <name>server.markhome.giai.msscf.v2_13.ycfcore</name>
   <description>MSS Code Factory CFCore 2.13 Generation Knowledgebase</description>
   <url>https://msobkow.github.io/ycf/</url>
@@ -24,7 +24,7 @@
     <dependency>
       <groupId>giai-ycf-v2_13</groupId>
       <artifactId>giai-ycf-v2_13-ycflib.CFLib</artifactId>
-      <version>2.13.42-alpha17-202611150800</version>
+      <version>2.13.42-alpha17-202611160420</version>
     </dependency>
   </dependencies>
 

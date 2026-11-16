@@ -208,7 +208,7 @@ public class YCFCli {
 
 	public final static String LogFileName = "ManufactureProject.log";
 	public final static String ProductName = "MSS Code Factory 2.13";
-	public final static String ProductWithVersion = "MSS Code Factory 2.13.42-alpha15-202611010900";
+	public final static String ProductWithVersion = "MSS Code Factory 2.13.42-alpha15-202611160420";
 	private static MSSBamYCFPrefs _UserPrefs = null;
 	private static String parsedToolSetNames[] = null;
 	private static IYCFLibMessageLog	log = new YCFLibConsoleMessageLog();

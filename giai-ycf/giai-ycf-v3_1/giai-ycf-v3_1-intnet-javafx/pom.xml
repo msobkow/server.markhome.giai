@@ -4,12 +4,12 @@
   <parent>
     <groupId>server.markhome.ycf</groupId>
     <artifactId>server.markhome.ycf.v3_1</artifactId>
-    <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+    <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
   </parent>
 
   <groupId>server.markhome.ycf.v3_1</groupId>
   <artifactId>server.markhome.ycf.v3_1.busmodel.busmodeljavafx</artifactId>
-  <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+  <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
   <name>server.markhome.ycf.v3_1.busmodel.busmodeljavafx</name>
   <description>ycf 3.1.alpha16-202611070000-2.13.42-snapshot-202611070000 BusModel busmodeljavafx - JavaFX components for BusModel applications</description>
   <url>mailto:mark.sobkow@gmail.com</url>
@@ -35,17 +35,17 @@
     <dependency>
       <groupId>server.markhome.cf.v3_1</groupId>
       <artifactId>server.markhome.cf</artifactId>
-      <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+      <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
     </dependency>
     <dependency>
       <groupId>server.markhome.cf.v3_1</groupId>
       <artifactId>server.markhome.cf.dbutil</artifactId>
-      <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+      <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
     </dependency>
     <dependency>
       <groupId>server.markhome.cf.v3_1</groupId>
       <artifactId>server.markhome.cf.javafx</artifactId>
-      <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+      <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
     </dependency>
     <dependency>
         <groupId>ch.qos.logback</groupId>
@@ -92,27 +92,27 @@
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.secure</artifactId>
-        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.intnet.intnet</artifactId>
-        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.busmodel.busmodel</artifactId>
-        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.securejavafx</artifactId>
-        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.intnet.intnetjavafx</artifactId>
-        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611150800</version>
+        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
     </dependency>
   </dependencies>
 

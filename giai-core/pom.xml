@@ -4,10 +4,10 @@
 	<parent>
 		<groupId>server.markhome</groupId>
 		<artifactId>server.markhome.giai</artifactId>
-		<version>1.1.42-alpha17-202611150800</version>
+		<version>1.1.42-alpha17-202611160420</version>
 	</parent>
 	<artifactId>giai-core</artifactId>
-	<version>1.1.42-alpha17-202611150800</version>
+	<version>1.1.42-alpha17-202611160420</version>
 	<groupId>server.markhome.giai</groupId>
 	<name>giai-core</name>
 	<description>GiAI v1.1 Core Services</description>
@@ -20,13 +20,13 @@
 		<url>https://github.com/msobkow/server.markhome.giai/</url>
 		<project.url>https://msobkow.github.io/</project.url>
 		<project.scm.url>https://github.com/msobkow/server.markhome.giai.git</project.scm.url>
-		<project.build.outputTimestamp>202611150800</project.build.outputTimestamp>
+		<project.build.outputTimestamp>202611160420</project.build.outputTimestamp>
 		<package.mainClass>server.markhome.giai.core.GiAILibEntry</package.mainClass>
 		<package.testMainClass>server.markhome.giai.core.testGiAILibEntry</package.testMainClass>
-		<giai.version>1.1.42-alpha17-202611150800</giai.version>
+		<giai.version>1.1.42-alpha17-202611160420</giai.version>
 		<commons.rc.version>alpha17</commons.rc.version>
 		<giai.rc.version>alpha17</giai.rc.version>
-		<core.giai.version>1.1.42-alpha17-202611150800</core.giai.version>
+		<core.giai.version>1.1.42-alpha17-202611160420</core.giai.version>
 		<core.giai.rc.version>alpha17</core.giai.rc.version>
 		<rat.skip>true</rat.skip>
 		<changes.announcementDirectory>.</changes.announcementDirectory>

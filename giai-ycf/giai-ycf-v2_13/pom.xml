@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>server.markhome.giai</groupId>
 		<artifactId>server.markhome.giai.ycf</artifactId>
-		<version>1.1.42-snapshot-202611150800</version>
+		<version>1.1.42-snapshot-202611160420</version>
 	</parent>
 	<groupId>server.markhome.giai.ycf</groupId>
 	<artifactId>giai-ycf-v2_13</artifactId>
 	<name>giai-ycf-v2_13</name>
-	<version>2.13.42-alpha17-202611150800</version>
+	<version>2.13.42-alpha17-202611160420</version>
 	<description>GiAI v1.1 - Yorkton Code Fractal (YCF) v2.13</description>
 	<packaging>pom</packaging>
 
@@ -30,14 +30,14 @@
 		<url>https://msobkow.github.io/giai-ycf/giai-ycf-v2_13/</url>
 		<project.url>https://msobkow.github.io/giai-ycf/giai-ycf-v2_13/</project.url>
 		<project.scm.url>git@github.com:msobkow/org.msscf.msscf.git</project.scm.url>
-		<project.build.outputTimestamp>202611150800</project.build.outputTimestamp>
-		<giai.version>1.1.42-alpha17-202611150800</giai.version>
+		<project.build.outputTimestamp>202611160420</project.build.outputTimestamp>
+		<giai.version>1.1.42-alpha17-202611160420</giai.version>
 		<giai.rc.version>alpha17</giai.rc.version>
-		<ycf.giai.version>1.1.42-alpha17-202611150800</ycf.giai.version>
+		<ycf.giai.version>1.1.42-alpha17-202611160420</ycf.giai.version>
 		<ycf.giai.rc.version>alpha17</ycf.giai.rc.version>
-		<v2_13.ycf.giai.version>2.13.42-alpha17-202611150800</v2_13.ycf.giai.version>
+		<v2_13.ycf.giai.version>2.13.42-alpha17-202611160420</v2_13.ycf.giai.version>
 		<v2_13.ycf.giai.rc.version>alpha17</v2_13.ycf.giai.rc.version>
-		<project.build.outputTimestamp>202611150800</project.build.outputTimestamp>
+		<project.build.outputTimestamp>202611160420</project.build.outputTimestamp>
 		<package.mainClass>server.markhome.giai.ycf.v2_13.YCF213LibEntry</package.mainClass>
 		<package.testMainClass>server.markhome.giai.ycf.v2_13.testYCF213LibEntry</package.testMainClass>
 		<rat.skip>true</rat.skip>
