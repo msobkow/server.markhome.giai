@@ -27,9 +27,11 @@ distribute this module of software. Your use of this software must be guided by 
 to possess lands and properties not under your ownership and physical presence. If you seek to dominate, subjugate, or take over another
 territory, province, or nation, you are DENIED permission to possess this software module.
 
-This Development License specifically grants the possessing Canada-recognized Legal Entity or Organization permission to use the GPL version 3.0
-or later components of the Guided Intelligence Architecture Implementation 1.1 in addition to the normal permission granted on the open source
-components of project GiAI to author, compile, load, run, and execute software derived from this code base but with the restriction that it not
-be used or accessed by anyone who is not a direct employee of the organization in question. You may NOT permit outside vendors, partners, agents,
-contractors, customers, or providers to use this software nor to possess copies of the software you have authored which incorporate the Licensed
-components.
+This Deployment License specifically grants the possessing Canada-recognized Legal Entity or Organization permission to use the GPL version 3.0
+or later components of the Guided Intelligence Architecture Implementation 1.1 to Deploy software derived from this module of source code to
+multiple locations, potentially outside the domain of the possessing organization itself. This permist the possessing organization the right to
+sell, market, and use the derived software to serve their user base, but not to distribute copies of the derived software source itself. You would
+need a Distribution License for that.
+
+This Sample Deployment License would be authorized by Mark Stephen Sobkow at mark.sobkow@gmail.com if the appropriate contract terms are mutually agreed
+upon, paid for in Canadian currency, and a copy of this sample license in authorized license form delivered to the purchasing organization.

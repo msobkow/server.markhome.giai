@@ -33,3 +33,6 @@ components of project GiAI to author, compile, load, run, and execute software d
 be used or accessed by anyone who is not a direct employee of the organization in question. You may NOT permit outside vendors, partners, agents,
 contractors, customers, or providers to use this software nor to possess copies of the software you have authored which incorporate the Licensed
 components.
+
+This Sample Development License would be authorized by Mark Stephen Sobkow at mark.sobkow@gmail.com if the appropriate contract terms are mutually agreed
+upon, paid for in Canadian currency, and a copy of this sample license in authorized license form delivered to the purchasing organization.
