@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>giai</groupId>
 		<artifactId>giai-ycf</artifactId>
-		<version>1.1.42-alpha17-202611160420</version>
+		<version>1.1.42-alpha19-202611210000</version>
 	</parent>
 	<groupId>giai-ycf</groupId>
 	<artifactId>giai-ycf-v3_1</artifactId>
@@ -35,15 +35,15 @@
 		<url>https://github.com/msobkow/server.markhome.giai/giai-ycf/v3_1/busmodel/appsetup/</url>
 		<project.url>https://msobkow.github.io/giai-ycf/v3_1/busmodel/appsetup/</project.url>
 		<project.scm.url>https://github.com/msobkow/server.markhome.giai.git</project.scm.url>
-		<project.build.outputTimestamp>202611160420</project.build.outputTimestamp>
+		<project.build.outputTimestamp>202611210000</project.build.outputTimestamp>
 		<package.mainClass>server.markhome.giai.ycf.v3_1.busmodel.appsetup.GiAILibEntry</package.mainClass>
 		<package.testMainClass>server.markhome.giai.ycf.v3_1.busmodel.appsetup.testGiAILibEntry</package.testMainClass>
-		<giai.version>1.1.42-alpha17-202611160420</giai.version>
+		<giai.version>1.1.42-alpha19-202611210000</giai.version>
 		<commons.rc.version>alpha17</commons.rc.version>
 		<giai.rc.version>alpha17</giai.rc.version>
-		<ycf.giai.version>1.1.42-alpha17-202611160420</ycf.giai.version>
+		<ycf.giai.version>1.1.42-alpha19-202611210000</ycf.giai.version>
 		<ycf.giai.rc.version>alpha17</ycf.giai.rc.version>
-		<v3_1.ycf.giai.version>3.1.42-alpha17-202611160420</v3_1.ycf.giai.version>
+		<v3_1.ycf.giai.version>3.1.42-alpha19-202611210000</v3_1.ycf.giai.version>
 		<v3_1.ycf.giai.rc.version>alpha17</v3_1.ycf.giai.rc.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>25</maven.compiler.source>
@@ -57,7 +57,7 @@
 		<jakarta-annotation-api.version>3.0.0</jakarta-annotation-api.version>
 		<jakarta-persistence-api.version>3.2.0</jakarta-persistence-api.version>
 		<spring.version>4.0.5</spring.version>
-		<cf.version>3.1.42-alpha17-202611160420</cf.version>
+		<cf.version>3.1.42-alpha19-202611210000</cf.version>
 		<orm.version>7.0.2</orm.version>
 		<postgresql.version>42.7.12</postgresql.version>
 		<javafx.version>21.0.9</javafx.version>
@@ -94,7 +94,7 @@
 		<commons.conf.dir>src/conf</commons.conf.dir>
 		<commons.cyclonedx.version>2.9.2</commons.cyclonedx.version>
 		<commons.deployment.protocol>scp</commons.deployment.protocol>
-		<commons.deploy-plugin.version>3.1.42-alpha17-202611160420</commons.deploy-plugin.version>
+		<commons.deploy-plugin.version>3.1.42-alpha19-202611210000</commons.deploy-plugin.version>
 		<commons.docEncoding>${commons.encoding}</commons.docEncoding>
 		<commons.encoding>UTF-8</commons.encoding>
 		<commons.exec-plugin.version>3.6.3</commons.exec-plugin.version>

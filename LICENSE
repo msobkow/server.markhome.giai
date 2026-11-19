@@ -37,9 +37,10 @@ You may obtain a copy of the Open Source Licenses supported at:
 
     http://gnu.org/
 
-Unless required by applicable International or Canadian Law or agreed to in writing, software distributed under the Licenses is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the Licenses for the specific language governing permissions and limitations
-under the Licenses, subject to such restrictions are required by International Law and Treaty Agreements and the Canadian Legal system.
+Unless required by applicable law or agreed to in writing, software distributed under the Licenses is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+either express or implied, unless required by International Law and Treaty Agreements with Canada as a Signatory as interpreted by the International Criminal Court, the Canadian
+Constition, the Canadian Charter of Rights, or Canadian Federal Law as interpreted by our Supreme Court of Canada.  See the Licenses for the specific language governing permissions
+and limitations under the Licenses.
 
 If you wish to modify and use this code without publishing your changes, or integrate it with proprietary code, please contact Mark Stephen
 Sobkow for a commercial license at mark.sobkow@gmail.com.

@@ -4,14 +4,14 @@
   <parent>
     <groupId>server.markhome.ycf</groupId>
     <artifactId>server.markhome.ycf.v3_1</artifactId>
-    <version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
+    <version>3.1.42-202611010900-2.13.42-alpha19-202611210000</version>
   </parent>
 
   <groupId>server.markhome.ycf.v3_1</groupId>
   <artifactId>server.markhome.ycf.v3_1.busmodel.busmodelprot</artifactId>
-  <version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
+  <version>3.1.42-202611010900-2.13.42-alpha19-202611210000</version>
   <name>server.markhome.ycf.v3_1.busmodel.busmodelprot</name>
-  <description>ycf 3.1.42-202611010900-2.13.42-alpha15-202611010900 BusModel BusModel - Protected package of foundation objects</description>
+  <description>ycf 3.1.42-202611010900-2.13.42-alpha19-202611010900 BusModel BusModel - Protected package of foundation objects</description>
   <url>mailto:mark.sobkow@gmail.com</url>
 
   <properties>
@@ -27,19 +27,19 @@
 	<jakarta-annotation-api.version>3.0.0</jakarta-annotation-api.version>
 	<jakarta-persistence-api.version>3.2.0</jakarta-persistence-api.version>
 	<spring.version>4.0.5</spring.version>
-    <cf.version>3.1.42-alpha17-202611160420</cf.version>
+    <cf.version>3.1.42-alpha19-202611210000</cf.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>server.markhome.cf.v3_1</groupId>
       <artifactId>server.markhome.cf</artifactId>
-      <version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
+      <version>3.1.42-202611010900-2.13.42-alpha19-202611210000</version>
     </dependency>
     <dependency>
       <groupId>server.markhome.cf.v3_1</groupId>
       <artifactId>server.markhome.cf.dbutil</artifactId>
-      <version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
+      <version>3.1.42-202611010900-2.13.42-alpha19-202611210000</version>
     </dependency>
     <dependency>
         <groupId>ch.qos.logback</groupId>
@@ -86,27 +86,27 @@
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.securepub</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
+        <version>3.1.42-202611010900-2.13.42-alpha19-202611210000</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.intnet.intnetpub</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
+        <version>3.1.42-202611010900-2.13.42-alpha19-202611210000</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.busmodel.busmodelpub</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
+        <version>3.1.42-202611010900-2.13.42-alpha19-202611210000</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.secureprot</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
+        <version>3.1.42-202611010900-2.13.42-alpha19-202611210000</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.intnet.intnetprot</artifactId>
-        <version>3.1.42-202611010900-2.13.42-alpha15-202611160420</version>
+        <version>3.1.42-202611010900-2.13.42-alpha19-202611210000</version>
     </dependency>
   </dependencies>
 
@@ -135,7 +135,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.1.42-alpha17-202611160420</version>
+				<version>3.1.42-alpha19-202611210000</version>
 				<configuration>
 					<skip>true</skip>
 				</configuration>

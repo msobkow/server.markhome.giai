@@ -9,9 +9,9 @@
 
   <groupId>server.markhome.ycf.v3_1</groupId>
   <artifactId>server.markhome.ycf.v3_1.secure.securejpatest</artifactId>
-  <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
+  <version>3.1.alpha19-202611070000-2.13.42-snapshot-202611210000</version>
   <name>server.markhome.ycf.v3_1.secure.securejpatest</name>
-  <description>ycf 3.1.alpha16-202611070000-2.13.42-snapshot-202611070000 Secure Secure - JPA Test program to make sure database instantiates</description>
+  <description>ycf 3.1.alpha19-202611070000-2.13.42-snapshot-202611070000 Secure Secure - JPA Test program to make sure database instantiates</description>
   <url>mailto:mark.sobkow@gmail.com</url>
 
   <properties>
@@ -36,12 +36,12 @@
     <dependency>
       <groupId>server.markhome.cf.v3_1</groupId>
       <artifactId>server.markhome.cf</artifactId>
-      <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
+      <version>3.1.alpha19-202611070000-2.13.42-snapshot-202611210000</version>
     </dependency>
     <dependency>
       <groupId>server.markhome.cf.v3_1</groupId>
       <artifactId>server.markhome.cf.dbutil</artifactId>
-      <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
+      <version>3.1.alpha19-202611070000-2.13.42-snapshot-202611210000</version>
     </dependency>
     <dependency>
         <groupId>ch.qos.logback</groupId>
@@ -100,22 +100,22 @@
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.securepub</artifactId>
-        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
+        <version>3.1.alpha19-202611070000-2.13.42-snapshot-202611210000</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.secureprot</artifactId>
-        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
+        <version>3.1.alpha19-202611070000-2.13.42-snapshot-202611210000</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.secure</artifactId>
-        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
+        <version>3.1.alpha19-202611070000-2.13.42-snapshot-202611210000</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.ycf.v3_1</groupId>
         <artifactId>server.markhome.ycf.v3_1.secure.securejpa</artifactId>
-        <version>3.1.alpha16-202611070000-2.13.42-snapshot-202611160420</version>
+        <version>3.1.alpha19-202611070000-2.13.42-snapshot-202611210000</version>
     </dependency>
   </dependencies>
 

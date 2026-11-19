@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 http://maven.apache.org/xsd/maven-4.1.0.xsd" root="true">
 	<modelVersion>4.1.0</modelVersion>
 	<artifactId>server.markhome.giai</artifactId>
-	<version>1.1.42-alpha17-202611160420</version>
+	<version>1.1.42-alpha19-202611210000</version>
 	<groupId>server.markhome</groupId>
 	<name>server.markhome.giai</name>
 	<description>Guided Intelligence Architecture Implementation - Project GiAI v1.1</description>
@@ -17,13 +17,13 @@
 		<url>https://github.com/msobkow/server.markhome.giai/</url>
 		<project.url>https://msobkow.github.io/</project.url>
 		<project.scm.url>https://github.com/msobkow/server.markhome.giai.git</project.scm.url>
-		<project.build.outputTimestamp>202611160420</project.build.outputTimestamp>
+		<project.build.outputTimestamp>202611210000</project.build.outputTimestamp>
 		<package.mainClass>server.markhome.giai.core.GiAILibEntry</package.mainClass>
 		<package.testMainClass>server.markhome.giai.core.testGiAILibEntry</package.testMainClass>
-		<giai.version>1.1.42-alpha17-202611160420</giai.version>
+		<giai.version>1.1.42-alpha19-202611210000</giai.version>
 		<commons.rc.version>alpha17</commons.rc.version>
 		<giai.rc.version>alpha17</giai.rc.version>
-		<core.giai.version>1.1.42-alpha17-202611160420</core.giai.version>
+		<core.giai.version>1.1.42-alpha19-202611210000</core.giai.version>
 		<core.giai.rc.version>alpha17</core.giai.rc.version>
 		<rat.skip>true</rat.skip>
 		<changes.announcementDirectory>.</changes.announcementDirectory>

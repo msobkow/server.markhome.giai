@@ -4,12 +4,12 @@
   <parent>
     <groupId>giai-ycf</groupId>
     <artifactId>giai-ycf-v2_13</artifactId>
-    <version>2.13.42-alpha17-202611160420</version>
+    <version>2.13.42-alpha19-202611210000</version>
   </parent>
 
   <groupId>giai-ycf-v2_13</groupId>
   <artifactId>giai-ycf-v2_13-ycfsec.CFSecRam</artifactId>
-  <version>2.13.42-alpha17-202611160420</version>
+  <version>2.13.42-alpha19-202611210000</version>
   <name>server.markhome.giai.v2_13.ycfsec.CFSecRam</name>
   <description>msscf CFSecRam 2.13 CFSec RAM persistence</description>
   <url>https://msobkow.github.io/ycf/</url>
@@ -24,17 +24,17 @@
     <dependency>
       <groupId>giai-ycf-v2_13</groupId>
       <artifactId>giai-ycf-v2_13-ycflib.CFLib</artifactId>
-      <version>2.13.42-alpha17-202611160420</version>
+      <version>2.13.42-alpha19-202611210000</version>
     </dependency>
     <dependency>
       <groupId>giai-ycf-v2_13</groupId>
       <artifactId>giai-ycf-v2_13-ycfsec</artifactId>
-      <version>2.13.42-alpha17-202611160420</version>
+      <version>2.13.42-alpha19-202611210000</version>
     </dependency>
     <dependency>
       <groupId>giai-ycf-v2_13</groupId>
       <artifactId>giai-ycf-v2_13-ycfsec.CFSecSaxLoader</artifactId>
-      <version>2.13.42-alpha17-202611160420</version>
+      <version>2.13.42-alpha19-202611210000</version>
     </dependency>
 
   </dependencies>
