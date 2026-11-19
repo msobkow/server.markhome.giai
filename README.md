@@ -29,6 +29,10 @@ Samples of the Commercial License permission grants are available at the followi
 this module of application code or configuration and driver data.
 
 	https://msobkow.github.io/mark-stephen-sobkows-licenses/
+	file:sample-giai-v1_1-ethical-development-license.txt
+	file:sample-giai-v1_1-ethical-deployment-license.txt
+	file:sample-giai-v1_1-ethical-distribution-license.txt
+	file:sample-giai-v1_1-transferrable-ethical-license.txt
 
 but do not actually grant any permissions to your organization as they have not yet been negotiated for, paid for, or delivered to your organization; they are
 only examples of what permissions the Commercial Licenses grant.
