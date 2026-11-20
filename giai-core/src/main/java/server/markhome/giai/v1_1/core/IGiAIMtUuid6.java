@@ -58,12 +58,12 @@ import org.teavm.jso.JSProperty;
 import java.util.*;
 
 /**
- *	The IGiAIAnyObj interface is a rich specification of all the system-level interfaces expected at runtime by the system which are available at various times during processing. All of the methods can theoretically return null at certain points during normal system operations, so be careful in your code to allow for that.
+ *	The IGiAIMtBoolean interface specifies the get() and set(expeted, value) methods for a Boolean data value.
  *
- *	@since 2016
+ *	@since 2026
  *	@author Mark Sobkow (mark.sobkow@gmail.com)
  */
-public interface IGiAIMtReference extends JSObject {
+public interface IGiAIMtBoolean extends JSObject {
 
 	/**
 	 *	The service singleton has to be thread-safe.
@@ -77,12 +77,12 @@ public interface IGiAIMtReference extends JSObject {
 	 *	@return The service singleton.
 	 */
 	@JSExport
-	public static IGiAIMtReference getService() {
-		IGiAIMtReference ref = ((IGiAIMtReference)(singleton.get()));
+	public static IGiAIMtBoolean getService() {
+		IGiAIMtBoolean ref = ((IGiAIMtBoolean)(singleton.get()));
 		if (ref == null) {
-			ref = new GiAIMtReference();
+			ref = new GiAIMtBoolean();
 			singleton.set(null, ref);
-			ref = ((IGiAIMtReference)(singleton.get()));
+			ref = ((IGiAIMtBoolean)(singleton.get()));
 		}
 		return(ref);
 	}
@@ -90,7 +90,7 @@ public interface IGiAIMtReference extends JSObject {
 	/**
 	 *	The LibEntry object for a package always defines the OIDs for the package.
 	 */
-	public static final long GiAIMTREFERENCE_OID = IGiAIAnyObj.MtReferenceOid;
+	public static final long GiAIMTBOOLEAN_OID = IGiAIAnyObj.MtBooleanOid;
 
 	/**
 	 *	Get the Oid value that implementations return to identify their class.  Note that you cannot count on an interface always returning the same Oid; only concrete implementations will return the same Oid values. Oids are unique in the runtime; one per instantiable class and a minimum of one per interface.
@@ -99,7 +99,7 @@ public interface IGiAIMtReference extends JSObject {
 	 */
 	@JSExport
 	public static long getOid() {
-		return(GiAIMTREFERENCE_OID);
+		return(GiAIMTBOOLEAN_OID);
 	}
 
 	/**
@@ -108,17 +108,17 @@ public interface IGiAIMtReference extends JSObject {
 	 *	@return An instance that provides the service method implementations.
 	 */
 	@JSExport
-	public IGiAIMtReference getInstance();
+	public IGiAIMtBoolean getInstance();
 
 	/**
-	 *	Get an instance that provides the service method implementations specifying the initial instance to be referenced.
+	 *	Get an instance that provides the service method implementations specifying the initial Boolean value.
 	 *
-	 *	@param initObj The object to use to copy from or reference from the newly created instance.
+	 *	@param initValue The value to use to initialize the value of the newly created instance.
 	 *
-	 *	@return The Any instance that provides the service method implementations.
+	 *	@return The IGiAIMtBoolean instance that provides the service method implementations.
 	 */
 	 @JSExport
-	 public IGiAIMtReference getInstance(IGiAIAnyObj initObj);
+	 public IGiAIMtBoolean getInstance(boolean initValue);
 
 	/**
 	 *	Get the value this instance currently references.
@@ -126,7 +126,7 @@ public interface IGiAIMtReference extends JSObject {
 	 *	@return The currently referenced value.
 	 */
 	@JSProperty
-	public IGiAIAnyObj get();
+	public boolean get();
 
 	/**
 	 *	Set the <i>value</i> this instance is to reference if the current value matches <i>expected</i>.
@@ -137,5 +137,5 @@ public interface IGiAIMtReference extends JSObject {
 	 *	@return The value this instance references after attempting to change the value; it may be either the value passed in or a completely different reference, but it will only be <i>expected</i> iff <i>value</i> and <i>expected</i> are identical.
 	 */
 	@JSProperty
-	public IGiAIAnyObj set(IGiAIAnyObj expected, IGiAIAnyObj value);
+	public boolean[] set(boolean expected, boolean value);
 }
