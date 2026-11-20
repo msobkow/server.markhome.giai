@@ -1,0 +1,36 @@
+Sample Ethical Development License for the Guided Intelligence Implementation Project - Project GiAI v1.1, with specific expectations of ethical use
+and deployment of this software module.
+
+Welcome to the Guided Intelligence Architecture Implementation - Project GiAI v1.1. This is where you will find the new home
+of Yorkton Code Fractal 2.13.42 and 1.1.42, which are now subprojects of the overall GiAI v1.1 project.  Project GiAI builds
+on and leverages the Yorkton Code Fractal technology to provide an enhancement specialization layer that provides for the persistence
+of arbitrary database repository schemas in Java with attention paid to the TeaVM restrictions on code structure and layout,
+new multi-threading primitives, and new multi-threading data structures. This combination of architectural features provides
+for software that exhibits maximum throughput with minimal memory consumption costs in a performant multi-core host environment.
+
+The GNU Library General Public License 3.0 will apply to the giai-core code that is shared by all applications, in order to encourage
+people to contribute maintenance changes and enhancements to the public repositories and projects. The GNU General Public License 3.0
+will apply to the Business Application Model and essential rule expansion support code that provides the functionality of the overall
+architecture. The Apache 2.0 License will apply to the code for the 3.1 Secure and InterNet schemas, so that they can be used and
+extended without restrictions to form application implementations according to your needs. The Knowledge Base is under Dual GPL 3.0,
+because I insist on having the development of the actual intelligence to be globally shared. Knowledge may be "free," but there is
+still often a price to pay - in this case, to Mark Stephen Sobkow.
+
+This License is subject to a number of key restrictions. First and foremost, it is subject to meeting the requirements of International
+Law as interpreted by the International Criminal Court in the Hague, Treaty Agreements that Canada has signed up for, to abide by Canadian
+Law as interpreted by our Supreme Court, and to abide by the requirements of the Canadian Charter of Rights, a key part of our Constitution
+that defines fundamental human rights applying to all humans within Canada's borders with no regard for race, creed, nation of origin, or
+other arbitrary features. If you are human, you have rights here in my homeland.
+
+If you do not abide by any of those requirements, you are DENIED permission to possess, view, read, scan, process, compile, run, deploy, or
+distribute this module of software. Your use of this software must be guided by the principal of ethical human progress without attempting
+to possess lands and properties not under your ownership and physical presence. If you seek to dominate, subjugate, or take over another
+territory, province, or nation, you are DENIED permission to possess this software module.
+
+This Distribution License specifically grants the possessing Canada-recognized Legal Entity or Organization permission to use the GPL version 3.0
+or later components of the Guided Intelligence Architecture Implementation 1.1 permission to Distribute copies of their custom application software
+source code, but not that of project GiAI itself. Project GiAI is to be treated as a third party component of the custom application software, not
+an internally modified and distributed piece of software.
+
+This Sample Distribution License would be authorized by Mark Stephen Sobkow at mark.sobkow@gmail.com if the appropriate contract terms are mutually agreed
+upon, paid for in Canadian currency, and a copy of this sample license in authorized license form delivered to the purchasing organization.
