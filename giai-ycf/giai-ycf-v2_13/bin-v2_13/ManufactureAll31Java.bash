@@ -1,11 +1,16 @@
 #!/bin/bash
-export args=$*
-export restore=`pwd`
-. $MSSCF_HOME/v2_13-maven/org.msscf.msscf/bin-v2_13/initbuild
-cd $MSSCF_HOME/v2_13-maven/org.msscf.msscf/bin-v2_13
-./ManufactureSecure31Java.bash $args
-./ManufactureIntNet31Java.bash $args
-./ManufactureCore31Java.bash $args
-#./ManufactureDbTest31Java.bash $args
-./ManufactureBusModel31Java.bash $args
-cd $MSSCF_HOME
+#!/bin/bash
+rawBuildString="$1"
+toolsetNames=$2 $3 $4 $5 $6 $7 $8 $9
+export SaveDir=`pwd`
+. $GIAI_HOME/server.markhome.giai.giaiycf/bin-v2_13/initbuild
+if [ "${rawBuildString}" != "" ]; then
+	buildString="${rawBuildString}-${BUILD_STAMP}"
+else
+	buildString="${BUILD_STAMP}"
+fi
+cd $GIAI_HOME/server.markhome.giai.giaiycf/bin-v2_13
+./ManufactureSecure31Java.bash ${rawBuildString} ${toolsetName$}
+./ManufactureInterNet31Java.bash ${rawBuildString} ${toolsetName$}
+./ManufactureBusModel31Java.bash ${rawBuildString} ${toolsetName$}
+cd $SaveDir
